@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://pk8qa6077cx8"]
+[gd_scene load_steps=21 format=3 uid="uid://pk8qa6077cx8"]
 
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="1_hl4fq"]
 [ext_resource type="Script" path="res://chars/basechar.gd" id="1_qlr3n"]
+[ext_resource type="PackedScene" uid="uid://us6cw7bv6kwn" path="res://scripts/shadow_walk_node.tscn" id="3_xug3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
 atlas = ExtResource("1_hl4fq")
@@ -159,3 +160,19 @@ target_position = Vector2(0, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="cheat_code" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 39.0
+offset_bottom = -8.0
+theme_override_font_sizes/normal_font_size = 8
+text = "testqweqwewq"
+
+[node name="shadow_walk_node" parent="." instance=ExtResource("3_xug3k")]
+visible = false
+
+[node name="auto_path" type="NavigationAgent2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

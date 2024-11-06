@@ -25,6 +25,9 @@ var stop_chase:bool = false
 @onready var player:CharacterBody2D
 @onready var hiding_timer: Timer = $hiding_timer
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var cheat_code: RichTextLabel = $cheat_code
+@onready var sight_timer: Timer = $sight_timer
+
 
 var move_sequence: Array = [
 	"up", "up", "up", "up", "up", "up", "up", "up", "up", "up",
@@ -48,7 +51,6 @@ func _process(delta: float) -> void:
 		print("returning to initial position")
 		stop_chase = false
 		enemy_state = 'returning'
-
 	if enemy_state == 'chasing':
 		move_timer.stop()
 		chase_player()
@@ -120,9 +122,12 @@ func detect_player() -> void:
 				return 
 			if not body.is_in_shadow():
 				player = body
-				enemy_state = 'chasing'
+				if sight_timer.is_stopped() and enemy_state!="chasing" and enemy_state!="chasing_ghost":
+					enemy_state = 'waiting_to_run'
+					sight_timer.start()
 				return 
 	return 
+
 
 func move_nav_agent(pos):
 	var curr_position = global_position
@@ -146,8 +151,8 @@ func chase_player():
 	var player_pos = player.global_position
 	
 	move_nav_agent(player_pos)
-	
 	if is_colliding():
+		print("is colliding")
 		if hiding_timer.is_stopped():
 			hiding_timer.start()
 		enemy_state = 'chasing_ghost'
@@ -179,3 +184,13 @@ func return_to_init():
 
 func _on_hiding_timer_timeout() -> void:
 	stop_chase = true
+
+
+func _on_sight_timer_timeout() -> void:
+	player = null
+	detect_player()
+	print(player)
+	if player:
+		enemy_state = 'chasing' 
+	else:
+		enemy_state = "returning"
