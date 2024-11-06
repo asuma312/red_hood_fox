@@ -172,15 +172,14 @@ autostart = true
 [node name="player_finder" type="RayCast2D" parent="."]
 collision_mask = 6
 
-[node name="hiding_timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="sight_timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="searching_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="move_timer" to="." method="_on_move_timer_timeout"]
-[connection signal="timeout" from="hiding_timer" to="." method="_on_hiding_timer_timeout"]
 [connection signal="timeout" from="sight_timer" to="." method="_on_sight_timer_timeout"]
+[connection signal="timeout" from="searching_timer" to="." method="_on_searching_timer_timeout"]

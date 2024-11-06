@@ -4,8 +4,8 @@ var speed = 150
 var player_state = 'idle'
 var direction
 var last_direction
-var in_shadow:bool = true
 
+var in_shadow:bool = true
 var is_writing:bool = false
 var is_cheat_text_reset:bool = false
 var can_write:bool = true
@@ -20,6 +20,7 @@ var skill_info:Dictionary = {}
 
 @onready var shadow_walk_node: Node2D = $shadow_walk_node
 
+@onready var cheat_node
 @onready var codes ={
 	"sh4d0":shadow_walk_node
 }
@@ -86,6 +87,12 @@ func _input(event: InputEvent) -> void:
 			is_cheat_text_reset = true
 			cheat_code.visible = is_writing
 			cheat_code.text = 'Insert a code'
+			if cheat_node:
+				cheat_node.visible = false
+				cheat_node.activated = false
+				can_write = true
+				cheat_node = null
+				return _input(event)
 			return
 		
 		if is_writing and can_write:
@@ -118,7 +125,7 @@ func detect_code(text):
 		return "WRONG CODE"
 	else:
 		can_write = false
-		var cheat_node = codes.get(text)
+		cheat_node = codes.get(text)
 		cheat_node.visible = true
 		cheat_node.activated = true
 		return text

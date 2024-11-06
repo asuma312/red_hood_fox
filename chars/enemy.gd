@@ -19,14 +19,16 @@ var last_position:Vector2
 var stop_chase:bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var move_timer: Timer = $move_timer
 @onready var fov: Area2D = $fov
 @onready var player_finder: RayCast2D = $player_finder
 @onready var player:CharacterBody2D
-@onready var hiding_timer: Timer = $hiding_timer
+@onready var perma_player:CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var cheat_code: RichTextLabel = $cheat_code
+
 @onready var sight_timer: Timer = $sight_timer
+@onready var move_timer: Timer = $move_timer
+@onready var searching_timer: Timer = $searching_timer
 
 
 var move_sequence: Array = [
@@ -47,20 +49,24 @@ func _process(delta: float) -> void:
 	detect_player()
 	setup_target_ray()
 	
-	if navigation_agent_2d.is_navigation_finished() and stop_chase:
-		print("returning to initial position")
-		stop_chase = false
-		enemy_state = 'returning'
+
+
+
 	if enemy_state == 'chasing':
 		move_timer.stop()
 		chase_player()
 		
-	if enemy_state == 'chasing_ghost':
+	elif enemy_state == 'chasing_ghost':
 		move_timer.stop()
 		chase_ghost()
 	
-	if enemy_state == 'returning':
+	elif enemy_state == 'returning':
 		return_to_init()
+	
+	elif enemy_state == 'searching':
+		search()
+	
+
 
 	
 
@@ -122,7 +128,10 @@ func detect_player() -> void:
 				return 
 			if not body.is_in_shadow():
 				player = body
-				if sight_timer.is_stopped() and enemy_state!="chasing" and enemy_state!="chasing_ghost":
+				perma_player = player
+				if sight_timer.is_stopped() and enemy_state not in ["chasing","chasing_ghost","waiting_to_run"]:
+					print(enemy_state)
+					move_timer.stop()
 					enemy_state = 'waiting_to_run'
 					sight_timer.start()
 				return 
@@ -141,9 +150,9 @@ func move_nav_agent(pos):
 	move_and_slide()
 
 func setup_target_ray():
-	if not player:
+	if not perma_player:
 		return
-	var player_pos = player.global_position
+	var player_pos = perma_player.global_position
 	player_finder.target_position = to_local(player_pos)
 
 
@@ -152,13 +161,9 @@ func chase_player():
 	
 	move_nav_agent(player_pos)
 	if is_colliding():
-		print("is colliding")
-		if hiding_timer.is_stopped():
-			hiding_timer.start()
 		enemy_state = 'chasing_ghost'
 		last_position = player_pos
-	else:
-		hiding_timer.stop()
+
 		
 func is_colliding()->bool:
 	if player_finder.is_colliding() and not player_finder.get_collider().is_in_group("followable"):
@@ -169,28 +174,35 @@ func chase_ghost():
 	move_nav_agent(last_position)
 	if not is_colliding():
 		enemy_state = 'chasing'
-		hiding_timer.stop()
+	if navigation_agent_2d.is_navigation_finished():
+		enemy_state = 'searching'
 		
 		
 	
-	
+func search():
+	if searching_timer.is_stopped():
+		print("aaa")
+		searching_timer.start()
 	
 func return_to_init():
 	move_nav_agent(initial_position)
-	
 	if navigation_agent_2d.is_navigation_finished():
 		enemy_state = 'walking'
-	
+		move_timer.start()
 
-func _on_hiding_timer_timeout() -> void:
-	stop_chase = true
+	
 
 
 func _on_sight_timer_timeout() -> void:
 	player = null
 	detect_player()
-	print(player)
+	print(enemy_state)
 	if player:
 		enemy_state = 'chasing' 
 	else:
 		enemy_state = "returning"
+
+
+func _on_searching_timer_timeout() -> void:
+	print("searching_timer_timeout")
+	enemy_state = 'returning'
