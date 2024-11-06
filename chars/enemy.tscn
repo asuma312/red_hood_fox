@@ -145,7 +145,7 @@ animations = [{
 size = Vector2(8, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x71ak"]
-radius = 100.717
+radius = 372.012
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_jtfdr")
@@ -167,4 +167,13 @@ shape = SubResource("CircleShape2D_x71ak")
 wait_time = 0.2
 autostart = true
 
+[node name="player_finder" type="RayCast2D" parent="."]
+
+[node name="hiding_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [connection signal="timeout" from="move_timer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="hiding_timer" to="." method="_on_hiding_timer_timeout"]

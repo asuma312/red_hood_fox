@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var speed = 150
+var speed = 50
 var last_move = "up"
 var last_index = 0
 var actual_move
 var enemy_state
 var direction = Vector2.ZERO
+var initial_position:Vector2
 
 var vectors = {
 	"up": Vector2(0, -1),
@@ -14,24 +15,55 @@ var vectors = {
 	"left": Vector2(-1, 0)
 }
 
+var last_position:Vector2
+var stop_chase:bool = false
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var move_timer: Timer = $move_timer
+@onready var fov: Area2D = $fov
+@onready var player_finder: RayCast2D = $player_finder
+@onready var player:CharacterBody2D
+@onready var hiding_timer: Timer = $hiding_timer
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var move_sequence: Array = [
-	"up", "up", "up", "up", "up", "up", "up", "up", "up", "up",  # 10 steps up
-	"right", "right", "right", "right", "right", "right", "right", "right", "right", "right",  # 10 steps right
-	"down", "down", "down", "down", "down", "down", "down", "down", "down", "down",  # 10 steps down
-	"left", "left", "left", "left", "left", "left", "left", "left", "left", "left"  # 10 steps left
+	"up", "up", "up", "up", "up", "up", "up", "up", "up", "up",
+	"right", "right", "right", "right", "right", "right", "right", "right", "right", "right", 
+	"down", "down", "down", "down", "down", "down", "down", "down", "down", "down",  
+	"left", "left", "left", "left", "left", "left", "left", "left", "left", "left"
 ]
 
 
 func _ready() -> void:
+	initial_position = global_position
 	actual_move = last_move
 	_movement_processor()
 
 func _process(delta: float) -> void:
+	
+	detect_player()
+	setup_target_ray()
+	
+	if navigation_agent_2d.is_navigation_finished() and stop_chase:
+		print("returning to initial position")
+		stop_chase = false
+		enemy_state = 'returning'
+
 	if enemy_state == 'chasing':
 		move_timer.stop()
+		chase_player()
+		
+	if enemy_state == 'chasing_ghost':
+		move_timer.stop()
+		chase_ghost()
+	
+	if enemy_state == 'returning':
+		return_to_init()
+
+	
+
+
+		
 
 func _movement_processor():
 	var next_index = (last_index + 1) % move_sequence.size()
@@ -67,3 +99,70 @@ func player_anim_verifier():
 
 	elif enemy_state == 'idle':
 		animated_sprite_2d.play("idle_down")
+		
+
+func detect_player() -> void:
+	for body in fov.get_overlapping_bodies():
+		if body.is_in_group("followable"):
+			if is_colliding():
+				return
+			if body.is_in_shadow():
+				return 
+			if not body.is_in_shadow():
+				player = body
+				enemy_state = 'chasing'
+				return 
+	return 
+
+func move_nav_agent(pos):
+	var curr_position = global_position
+	navigation_agent_2d.set_target_position(pos)
+	var next_path_position = navigation_agent_2d.get_next_path_position()
+	var distance = curr_position.distance_to(next_path_position)
+	velocity = curr_position.direction_to(next_path_position) * speed
+	move_and_slide()
+
+func setup_target_ray():
+	if not player:
+		return
+	var player_pos = player.global_position
+	player_finder.target_position = to_local(player_pos)
+
+
+func chase_player():
+	var player_pos = player.global_position
+	
+	move_nav_agent(player_pos)
+	
+	if is_colliding():
+		if hiding_timer.is_stopped():
+			hiding_timer.start()
+		enemy_state = 'chasing_ghost'
+		last_position = player_pos
+	else:
+		hiding_timer.stop()
+		
+func is_colliding()->bool:
+	if player_finder.is_colliding() and not player_finder.get_collider().is_in_group("followable"):
+		return true
+	return false
+		
+func chase_ghost():
+	move_nav_agent(last_position)
+	if not is_colliding():
+		enemy_state = 'chasing'
+		hiding_timer.stop()
+		
+		
+	
+	
+	
+func return_to_init():
+	move_nav_agent(initial_position)
+	
+	if navigation_agent_2d.is_navigation_finished():
+		enemy_state = 'walking'
+	
+
+func _on_hiding_timer_timeout() -> void:
+	stop_chase = true

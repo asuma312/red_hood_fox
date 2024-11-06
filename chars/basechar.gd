@@ -4,6 +4,7 @@ var speed = 100
 var player_state
 var direction
 var last_direction
+var in_shadow:bool = true
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var light_source: PointLight2D = $"../PointLight2D"
@@ -19,18 +20,18 @@ func _physics_process(delta: float) -> void:
 	velocity = direction*speed
 	move_and_slide()
 	last_direction = direction
+	light_verifier()
 	
+func is_in_shadow()->bool:
+	return in_shadow
 	
-	
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	add_to_group("followable")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	player_anim_verifier()
-	light_verifier()
 
 
 func player_anim_verifier():
@@ -56,8 +57,6 @@ func light_verifier():
 	var light_pos = light_source.global_position
 	light_source_finder.target_position = to_local(light_pos)
 	if light_source_finder.is_colliding():
-		#print("in shadow")
-		pass
+		in_shadow = true
 	else:
-		#print("not in shadow")
-		pass
+		in_shadow = false
