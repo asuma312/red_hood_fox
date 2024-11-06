@@ -1197,7 +1197,7 @@ sources/0 = SubResource("TileSetAtlasSource_d74at")
 [node name="map" type="Node2D"]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(313, 198)
+position = Vector2(298, 202)
 color = Color(1, 1, 1, 0.290196)
 shadow_enabled = true
 texture = ExtResource("5_hhtql")
@@ -1214,7 +1214,7 @@ position = Vector2(658, 285)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="tree" parent="Node2D" instance=ExtResource("4_jxtm7")]
-position = Vector2(578, 269)
+position = Vector2(562, 278)
 
 [node name="tree3" parent="Node2D" instance=ExtResource("4_jxtm7")]
 position = Vector2(434, 423)
@@ -1235,4 +1235,4 @@ position = Vector2(350, 83)
 position = Vector2(554, 106)
 
 [node name="enemy" parent="." instance=ExtResource("6_ggq5o")]
-position = Vector2(330, 244)
+position = Vector2(332, 246)

@@ -40,7 +40,7 @@ func _ready() -> void:
 	_movement_processor()
 
 func _process(delta: float) -> void:
-	
+	player_anim_verifier(direction)
 	detect_player()
 	setup_target_ray()
 	
@@ -77,23 +77,33 @@ func _movement_processor():
 func _on_move_timer_timeout() -> void:
 	enemy_state = 'walking'
 	_movement_processor()
-	player_anim_verifier()
+	player_anim_verifier(direction)
 	velocity = direction * speed
 	move_and_slide()
-
-
-func player_anim_verifier():
 	
-	if enemy_state == 'walking':
-		
-		if direction.y == -1:
+func player_anim_verifier(dir: Vector2) -> void:
+	if enemy_state in ['walking', 'chasing', 'chasing_ghost']:
+		if not animated_sprite_2d.animation_finished:
+			return
+
+		if dir.x != 0 and dir.y != 0:
+			if dir.x > 0:
+				animated_sprite_2d.flip_h = false
+			else:
+				animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("walk_side")
+
+		elif dir.y < 0:
 			animated_sprite_2d.play("walk_up")
-		if direction.y == 1:
+
+		elif dir.y > 0:
 			animated_sprite_2d.play("walk_down")
-		if direction.x == 1:
+
+		elif dir.x > 0:
 			animated_sprite_2d.flip_h = false
 			animated_sprite_2d.play("walk_side")
-		if direction.x == -1:
+
+		elif dir.x < 0:
 			animated_sprite_2d.flip_h = true
 			animated_sprite_2d.play("walk_side")
 
@@ -119,7 +129,10 @@ func move_nav_agent(pos):
 	navigation_agent_2d.set_target_position(pos)
 	var next_path_position = navigation_agent_2d.get_next_path_position()
 	var distance = curr_position.distance_to(next_path_position)
+	direction = curr_position.direction_to(next_path_position)
+
 	velocity = curr_position.direction_to(next_path_position) * speed
+	
 	move_and_slide()
 
 func setup_target_ray():

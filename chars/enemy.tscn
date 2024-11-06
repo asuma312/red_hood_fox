@@ -148,11 +148,13 @@ size = Vector2(8, 13)
 radius = 372.012
 
 [node name="enemy" type="CharacterBody2D"]
+position = Vector2(-1, 1)
+collision_mask = 2
 script = ExtResource("1_jtfdr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_akp2r")
-animation = &"idle_down"
+animation = &"walk_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

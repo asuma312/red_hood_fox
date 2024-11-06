@@ -10,6 +10,8 @@ height = 76.0
 polygon = PackedVector2Array(-42, -8, -26, -32, -3, -41, 22, -31, 34, -12, 33, 3, 26, 19, 29, 24, 18, 33, -3, 41, -23, 33, -31, 22)
 
 [node name="tree" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="topdowntree" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
