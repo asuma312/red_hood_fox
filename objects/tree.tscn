@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctddehylqy68p"]
+
+[ext_resource type="Texture2D" uid="uid://jks884t4x3fh" path="res://assets/Trees+.png" id="1_opic6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjbax"]
+radius = 37.0
+height = 76.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ei7og"]
+polygon = PackedVector2Array(-42, -8, -26, -32, -3, -41, 22, -31, 34, -12, 33, 3, 26, 19, 29, 24, 18, 33, -3, 41, -23, 33, -31, 22)
+
+[node name="tree" type="StaticBody2D"]
+
+[node name="topdowntree" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("1_opic6")
+region_enabled = true
+region_rect = Rect2(-1.32677, 8.14317, 80.1653, 85.9504)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_yjbax")
+
+[node name="shadow" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ei7og")
