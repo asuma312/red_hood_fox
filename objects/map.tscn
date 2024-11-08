@@ -1304,30 +1304,6 @@ energy = 0.57
 [node name="enemy" parent="enemies" instance=ExtResource("6_ggq5o")]
 position = Vector2(524, 269)
 
-[node name="enemy2" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(222, 486)
-
-[node name="enemy3" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(249, 35)
-
-[node name="enemy4" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(742, 216)
-
-[node name="enemy5" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(692, 460)
-
-[node name="enemy6" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(691, 24)
-
-[node name="enemy7" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(1088, 46)
-
-[node name="enemy8" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(1017, 298)
-
-[node name="enemy9" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(1045, 558)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

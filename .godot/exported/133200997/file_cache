@@ -1,7 +1,11 @@
-res://chars/basechar.tscn::fa9fd0397719150f147579f1e7204f20::1730935792::res://.godot/exported/133200997/export-2ae327e4be3791564816fc98eca84c22-basechar.scn
-res://chars/enemy.tscn::2c5a51082f7410597c13a558c2710a75::1730935792::res://.godot/exported/133200997/export-cff3dfa24c15f1f27652bcb9cc826bc9-enemy.scn
-res://objects/map.tscn::43cc35561a60d1d0bcefbccf51b08e13::1730935792::res://.godot/exported/133200997/export-c76908c69579287a412b684dfee1a434-map.scn
+res://chars/basechar.tscn::26d2232e20aa9f538ee160f83d4d5725::1731090194::res://.godot/exported/133200997/export-2ae327e4be3791564816fc98eca84c22-basechar.scn
+res://chars/enemy.tscn::398b00200b0316f9b3f6138f01391054::1731090194::res://.godot/exported/133200997/export-cff3dfa24c15f1f27652bcb9cc826bc9-enemy.scn
+res://objects/map.tscn::cf42b6e964e0700e9b370bfb44993f02::1731090193::res://.godot/exported/133200997/export-c76908c69579287a412b684dfee1a434-map.scn
 res://objects/mountain.tscn::a7b84c6b96fa89d5ccae5114ffded0c2::1730903759::res://.godot/exported/133200997/export-dc33909e9b3c2ecd0c13e05dd9c46424-mountain.scn
-res://objects/tree.tscn::dae789469f8a908cca32d135d0ffece8::1730935792::res://.godot/exported/133200997/export-06c3e021b4a409d9b2eb8edef1908948-tree.scn
-res://scripts/shadow_walk_node.tscn::5acee5323f5f3f6b6b1065228f5b241f::1730935792::res://.godot/exported/133200997/export-03dc24e87304ef8e1739c79cfb0c6fd0-shadow_walk_node.scn
-res://main.tscn::1a749bcf0ae888fc531233bc612aaa8c::1730935792::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://objects/tree.tscn::75041f55a604560bd1570e339ac8c265::1731090194::res://.godot/exported/133200997/export-06c3e021b4a409d9b2eb8edef1908948-tree.scn
+res://scripts/shadow_walk_node.tscn::5acee5323f5f3f6b6b1065228f5b241f::1731090194::res://.godot/exported/133200997/export-03dc24e87304ef8e1739c79cfb0c6fd0-shadow_walk_node.scn
+res://main.tscn::13eebf4626748895b110282945890bee::1731090193::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://scenes/lose.tscn::ca3c09fdc9690e8690c55ae1df11b6f1::1731090194::res://.godot/exported/133200997/export-efc2149ab720599002ee64c5ecd89a61-lose.scn
+res://scenes/won.tscn::0482d1ee71e0211629bf94508ee55ecb::1731090194::res://.godot/exported/133200997/export-3e2d498340ee5abf9deb220b7c7ce604-won.scn
+res://ui/hearth_container.tscn::c0712a861f288f9be10fded718b8a31c::1731090194::res://.godot/exported/133200997/export-1b4ded847eeda6fadfa350e347b1d187-hearth_container.scn
+res://ui/ui.tscn::b56cbfb1e79e024d8a09831fd89f3cce::1731090194::res://.godot/exported/133200997/export-388bf9857f8605ce0d560309bd309226-ui.scn

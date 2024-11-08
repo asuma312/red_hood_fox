@@ -12,6 +12,10 @@ collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_wp2xp")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-3, 45)
+polygon = PackedVector2Array(0, 0, 261, -118, 260, -108, 260, -94, 261, 33, 262.858, 48.9583, 571, 52)
+
 [node name="topdowntree" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(-1, -2)

@@ -8,6 +8,7 @@ var enemy_state
 var direction = Vector2.ZERO
 var initial_position:Vector2
 
+
 var vectors = {
 	"up": Vector2(0, -1),
 	"right": Vector2(1, 0),
@@ -24,10 +25,14 @@ var stop_chase:bool = false
 @onready var fov_range_medium: CollisionPolygon2D = $fov/fov_range_medium
 @onready var fov_range_small: CollisionPolygon2D = $fov/fov_range_small
 @onready var fov_big: Polygon2D = $fov/fov_big
+@onready var visible_fov: RayCast2D = $fov/fov_big/visible_fov
+
 @onready var fov_small: Polygon2D = $fov/fov_small
+@onready var fov_polyon_checkers: Node2D = $fov/fov_polyon_checkers
 
 
 @onready var current_fov: CollisionPolygon2D
+@onready var current_cone: Polygon2D
 @onready var player_finder: RayCast2D = $player_finder
 @onready var player:CharacterBody2D
 @onready var perma_player:CharacterBody2D
@@ -61,23 +66,51 @@ var move_sequence: Array = [
 	"left", "left", "left", "left", "left", "left", "left", "left", "left", "left"
 ]
 
+func fov_polygons():
+	if not current_cone:
+		return
+	var array_vector = []
+	array_vector.append(Vector2(0,0))
+	var polygon_checkers:Array = fov_polyon_checkers.get_children()
+	for polygon:RayCast2D in polygon_checkers:
+		var _position
+		if not polygon.is_colliding():
+			_position = polygon.target_position
+			array_vector.append(_position)
+		else:
+			_position = polygon.get_collision_point()
+			_position = polygon.to_local(_position)
+			array_vector.append(_position)
+	array_vector.append(Vector2(0,0))
+	print("**")
+	print(array_vector)
+	current_cone.polygon = array_vector
 
-func light_verifier():
+	
+
+
+func light_verifier():	
+	fov_polygons()
 	if in_shadow:
 		fov_range_small.disabled = false
 		
 		fov_range_big.disabled = true
 		fov_range_medium.disabled = true
+
+		current_fov = fov_range_small
+		
 		fov_big.visible = false
 		fov_small.visible = true
-		current_fov = fov_range_small
+		current_cone = fov_small
 	else:
 		fov_range_big.disabled = false
 		fov_range_medium.disabled = false
-		fov_big.visible = true
-		fov_small.visible = false
 		fov_range_small.disabled = true
 		current_fov = fov_range_big
+		
+		fov_big.visible = true
+		fov_small.visible = false
+		current_cone = fov_big
 	
 	
 	for area in shadow_checker.get_overlapping_areas():
@@ -90,7 +123,9 @@ func light_verifier():
 	
 		
 
-		
+
+
+
 		
 func _rotate_fov_to_dir(direction:Vector2):
 	if not direction:

@@ -1,3 +1,7 @@
+Polygon2D
+RayCast2D
+ColorRect
+Node2D
 Timer
 Button
 Panel
@@ -5,11 +9,6 @@ FlowContainer
 VBoxContainer
 CanvasLayer
 RichTextLabel
-ColorRect
 CollisionShape2D
 Area2D
 StaticBody2D
-Polygon2D
-CollisionPolygon2D
-Node2D
-DirectionalLight2D
