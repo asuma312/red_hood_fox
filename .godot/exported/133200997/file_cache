@@ -1,0 +1,7 @@
+res://chars/basechar.tscn::fa9fd0397719150f147579f1e7204f20::1730935792::res://.godot/exported/133200997/export-2ae327e4be3791564816fc98eca84c22-basechar.scn
+res://chars/enemy.tscn::2c5a51082f7410597c13a558c2710a75::1730935792::res://.godot/exported/133200997/export-cff3dfa24c15f1f27652bcb9cc826bc9-enemy.scn
+res://objects/map.tscn::43cc35561a60d1d0bcefbccf51b08e13::1730935792::res://.godot/exported/133200997/export-c76908c69579287a412b684dfee1a434-map.scn
+res://objects/mountain.tscn::a7b84c6b96fa89d5ccae5114ffded0c2::1730903759::res://.godot/exported/133200997/export-dc33909e9b3c2ecd0c13e05dd9c46424-mountain.scn
+res://objects/tree.tscn::dae789469f8a908cca32d135d0ffece8::1730935792::res://.godot/exported/133200997/export-06c3e021b4a409d9b2eb8edef1908948-tree.scn
+res://scripts/shadow_walk_node.tscn::5acee5323f5f3f6b6b1065228f5b241f::1730935792::res://.godot/exported/133200997/export-03dc24e87304ef8e1739c79cfb0c6fd0-shadow_walk_node.scn
+res://main.tscn::1a749bcf0ae888fc531233bc612aaa8c::1730935792::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn

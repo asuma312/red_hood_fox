@@ -20,6 +20,12 @@ var stop_chase:bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fov: Area2D = $fov
+@onready var fov_range_big: CollisionShape2D = $fov/fov_range_big
+@onready var fov_range_medium: CollisionShape2D = $fov/fov_range_medium
+@onready var fov_range_small: CollisionShape2D = $fov/fov_range_small
+
+
+@onready var current_fov: CollisionShape2D
 @onready var player_finder: RayCast2D = $player_finder
 @onready var player:CharacterBody2D
 @onready var perma_player:CharacterBody2D
@@ -29,6 +35,12 @@ var stop_chase:bool = false
 @onready var sight_timer: Timer = $sight_timer
 @onready var move_timer: Timer = $move_timer
 @onready var searching_timer: Timer = $searching_timer
+@onready var look_timer: Timer = $look_timer
+
+@onready var light_source: PointLight2D = $"../PointLight2D"
+@onready var light_source_finder: RayCast2D = $light_source_finder
+
+var in_shadow:bool = false
 
 
 var move_sequence: Array = [
@@ -39,6 +51,39 @@ var move_sequence: Array = [
 ]
 
 
+func light_verifier():
+	var light_pos = light_source.global_position
+	light_source_finder.target_position = to_local(light_pos)
+	if light_source_finder.is_colliding():
+		in_shadow = true
+		fov_range_small.disabled = false
+		
+		fov_range_big.disabled = true
+		fov_range_medium.disabled = true
+		current_fov = fov_range_small
+		
+	else:
+		in_shadow = false
+		fov_range_big.disabled = false
+		fov_range_medium.disabled = false
+
+		fov_range_small.disabled = true
+		current_fov = fov_range_big
+		
+		
+func _rotate_fov_to_dir(direction:Vector2):
+	if not direction:
+		return
+	if direction.length() > 0:
+		direction = direction.normalized()
+
+		var angle = direction.angle()
+
+		fov.rotation = angle
+	else:
+		print("Erro: vetor de direção inválido")
+
+		
 func _ready() -> void:
 	initial_position = global_position
 	actual_move = last_move
@@ -46,8 +91,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	player_anim_verifier(direction)
+	_rotate_fov_to_dir(direction)
 	detect_player()
 	setup_target_ray()
+	light_verifier()
 	
 
 
@@ -65,7 +112,8 @@ func _process(delta: float) -> void:
 	
 	elif enemy_state == 'searching':
 		search()
-	
+	elif enemy_state == 'look' or enemy_state == 'look_reverse':
+		look_around()
 
 
 	
@@ -93,7 +141,6 @@ func player_anim_verifier(dir: Vector2) -> void:
 	if enemy_state in ['walking', 'chasing', 'chasing_ghost']:
 		if not animated_sprite_2d.animation_finished:
 			return
-
 		if dir.x != 0 and dir.y != 0:
 			if dir.x > 0:
 				animated_sprite_2d.flip_h = false
@@ -124,18 +171,21 @@ func detect_player() -> void:
 		if body.is_in_group("followable"):
 			if is_colliding():
 				return
-			if body.is_in_shadow():
+				
+			if body.is_in_shadow() and enemy_state == 'walking':
 				return 
-			if not body.is_in_shadow():
-				player = body
-				perma_player = player
-				if sight_timer.is_stopped() and enemy_state not in ["chasing","chasing_ghost","waiting_to_run"]:
-					print(enemy_state)
-					move_timer.stop()
-					enemy_state = 'waiting_to_run'
-					sight_timer.start()
-				return 
+				
+			player = body
+			perma_player = player
+			if sight_timer.is_stopped() and enemy_state not in ["chasing","chasing_ghost","waiting_to_run"]:
+				move_timer.stop()
+				enemy_state = 'waiting_to_run'
+				sight_timer.start()
+			return 
 	return 
+
+
+
 
 
 func move_nav_agent(pos):
@@ -156,14 +206,30 @@ func setup_target_ray():
 	player_finder.target_position = to_local(player_pos)
 
 
+func is_in_vision(search_body):
+	for body in fov.get_overlapping_bodies():
+		if body != search_body:
+			continue
+		print("***__***")
+		print(search_body.global_position)
+		print(body)
+		if body.is_in_group("followable"):
+			return true
+	return false
 func chase_player():
 	var player_pos = player.global_position
+
 	
 	move_nav_agent(player_pos)
 	if is_colliding():
 		enemy_state = 'chasing_ghost'
 		last_position = player_pos
-
+		return
+	if not is_in_vision(player):
+		enemy_state = 'chasing_ghost'
+		last_position = player_pos
+		print("not in vision")
+		return
 		
 func is_colliding()->bool:
 	if player_finder.is_colliding() and not player_finder.get_collider().is_in_group("followable"):
@@ -172,7 +238,7 @@ func is_colliding()->bool:
 		
 func chase_ghost():
 	move_nav_agent(last_position)
-	if not is_colliding():
+	if not is_colliding() and is_in_vision(player):
 		enemy_state = 'chasing'
 	if navigation_agent_2d.is_navigation_finished():
 		enemy_state = 'searching'
@@ -180,10 +246,31 @@ func chase_ghost():
 		
 	
 func search():
-	if searching_timer.is_stopped():
-		print("aaa")
-		searching_timer.start()
+	enemy_state = 'look'
+	if look_timer.is_stopped():
+		print("starting look timer")
+		look_timer.start(0.5)
+
+func look_around():
+	if enemy_state == 'look':
+		if look_timer.is_stopped():
+			enemy_state = 'look_reverse'
+			look_timer.start(0.5)
 	
+	if enemy_state == 'look_reverse':
+		print("look_reverse")
+		if look_timer.is_stopped() and searching_timer.is_stopped():
+			direction = -direction
+			print("look_timer is stoped")
+			if searching_timer.is_stopped():
+				print("searching_timer is stoped")
+				searching_timer.start(1)
+				enemy_state = 'look_reverse_sleep'
+
+
+	
+
+
 func return_to_init():
 	move_nav_agent(initial_position)
 	if navigation_agent_2d.is_navigation_finished():

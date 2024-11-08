@@ -1,10 +1,7 @@
-res://objects/map.tscn
 res://main.tscn
+res://objects/map.tscn
 res://chars/basechar.tscn
-res://chars/basechar.gd
 res://objects/tree.tscn
-res://objects/wallkable_path.gd
 res://chars/enemy.tscn
-res://chars/enemy.gd
-res://scripts/shadow_walk_node.gd
 res://scripts/shadow_walk_node.tscn
+res://chars/enemy.gd
