@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://k3diovm3ombm"]
+
+[ext_resource type="Texture2D" uid="uid://eb88cgjlmow" path="res://assets/UI/hearth_container.png" id="1_x33lp"]
+
+[node name="hearth_container" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HearthContainer" type="Sprite2D" parent="."]
+position = Vector2(25.5625, 24.5625)
+scale = Vector2(0.195447, 0.214041)
+texture = ExtResource("1_x33lp")

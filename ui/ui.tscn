@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfc0l222skq8m"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_3c70b"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_3c70b")
+
+[node name="hearth_panel" type="Panel" parent="."]
+offset_right = 161.0
+offset_bottom = 52.0
+
+[node name="hearth_containers" type="FlowContainer" parent="hearth_panel"]
+layout_mode = 0
+offset_right = 161.0
+offset_bottom = 50.0

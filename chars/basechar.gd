@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 150
+var speed = 100
 var player_state = 'idle'
 var direction
 var last_direction
@@ -13,7 +13,15 @@ var can_write:bool = true
 var skill_info:Dictionary = {}
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var light_source: PointLight2D = $"../PointLight2D"
+
+@onready var ui: CanvasLayer = $Camera2D/UI
+
+
+@onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
+@onready var shadow_collision: CollisionShape2D = $shadow_checker/shadow_collision
+@onready var shadow_checker: Area2D = $shadow_checker
+
+@onready var light_source: PointLight2D = $"../lightsources/PointLight2D"
 @onready var light_source_finder: RayCast2D = $light_source_finder
 @onready var cheat_code: RichTextLabel = $cheat_code
 @onready var auto_path: NavigationAgent2D = $auto_path
@@ -47,14 +55,17 @@ func is_in_shadow()->bool:
 	return in_shadow
 	
 func _ready() -> void:
+	GlobalScript.actual_life= 3
 	add_to_group("followable")
 	print(self.get_groups())
 
 
 func _process(delta: float) -> void:
-	if direction.x == 0 or direction.y == 0:
-		player_state == 'idle'
+	if direction:
+		if direction.x == 0 or direction.y == 0:
+			player_state == 'idle'
 	player_anim_verifier()
+
 
 
 	
@@ -137,26 +148,42 @@ func player_anim_verifier():
 		
 		if direction.y == -1:
 			animated_sprite_2d.play("walk_up")
+			shadow_animation.play("walk_up")
 		if direction.y == 1:
 			animated_sprite_2d.play("walk_down")
+			shadow_animation.play('walk_down')
 		if direction.x == 1:
 			animated_sprite_2d.flip_h = false
 			animated_sprite_2d.play("walk_side")
+			shadow_animation.play('walk_side')
+			shadow_animation.flip_h = false
 		if direction.x == -1:
 			animated_sprite_2d.flip_h = true
 			animated_sprite_2d.play("walk_side")
+			shadow_animation.play("walk_side")
+			shadow_animation.flip_h = true
 
 	elif player_state == 'idle':
 		animated_sprite_2d.play("idle_down")
-			
+		shadow_animation.play("idle_down")
+		
 func light_verifier():
-	var light_pos = light_source.global_position
-	light_source_finder.target_position = to_local(light_pos)
-	if light_source_finder.is_colliding():
+	for area in shadow_checker.get_overlapping_areas():
+		if not area.is_in_group("shadow"):
+			continue
 		in_shadow = true
-	else:
-		in_shadow = false
+		return
+	in_shadow = false
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	print(event)
+
+
+func take_damage(dir_damage):
+
+	var knockback_direction = -self.global_position.direction_to(dir_damage)
+	var knockback_strength = 50
+
+	self.global_position += knockback_direction * knockback_strength
+	ui.lost_health()

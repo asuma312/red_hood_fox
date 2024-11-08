@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://pk8qa6077cx8"]
+[gd_scene load_steps=22 format=3 uid="uid://pk8qa6077cx8"]
 
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="1_hl4fq"]
 [ext_resource type="Script" path="res://chars/basechar.gd" id="1_qlr3n"]
+[ext_resource type="PackedScene" uid="uid://cfc0l222skq8m" path="res://ui/ui.tscn" id="3_efija"]
 [ext_resource type="PackedScene" uid="uid://us6cw7bv6kwn" path="res://scripts/shadow_walk_node.tscn" id="3_xug3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
@@ -146,6 +147,8 @@ animations = [{
 size = Vector2(8, 14)
 
 [node name="basechar" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qlr3n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -162,6 +165,8 @@ collision_mask = 6
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
+[node name="UI" parent="Camera2D" instance=ExtResource("3_efija")]
+
 [node name="cheat_code" type="RichTextLabel" parent="."]
 visible = false
 offset_left = -24.0
@@ -175,5 +180,19 @@ text = "testqweqwewq"
 visible = false
 
 [node name="auto_path" type="NavigationAgent2D" parent="."]
+
+[node name="shadow_checker" type="Area2D" parent="."]
+
+[node name="shadow_collision" type="CollisionShape2D" parent="shadow_checker"]
+shape = SubResource("RectangleShape2D_fett5")
+
+[node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
+modulate = Color(0, 0, 0, 0.384314)
+position = Vector2(-4, 12)
+scale = Vector2(1, 1)
+skew = 0.698132
+sprite_frames = SubResource("SpriteFrames_gbgqy")
+animation = &"idle_down"
+flip_v = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

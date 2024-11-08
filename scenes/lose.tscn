@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfqcow4chakeb"]
+
+[ext_resource type="Script" path="res://scenes/lose.gd" id="1_5fj2t"]
+
+[node name="LOSE" type="Node2D"]
+script = ExtResource("1_5fj2t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 645.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 452.0
+offset_top = 277.0
+offset_right = 653.0
+offset_bottom = 343.0
+theme_override_font_sizes/normal_font_size = 40
+text = "YOU LOSE"
+
+[node name="reset_button" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 344.0
+offset_right = 641.0
+offset_bottom = 426.0
+text = "PRESS TO RESTART"
+
+[connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]

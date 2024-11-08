@@ -9,7 +9,8 @@ var temp_speed = 900
 @onready var in_shadow: CollisionShape2D = $range/in_shadow
 @onready var of_shadow: CollisionShape2D = $range/of_shadow
 @onready var actual_range: CollisionShape2D
-@onready var shadow_verifier: RayCast2D = $shadow_verifyer
+
+
 @onready var light_source: PointLight2D = $"../../PointLight2D"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var teleport_delay: Timer = $teleport_delay
@@ -49,14 +50,14 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton and event.pressed:
 		var world_position =get_global_mouse_position()
-		shadow_verifier.global_position = world_position
-		var light_pos = light_source.global_position
-		shadow_verifier.target_position = shadow_verifier.to_local(light_pos)
+
 		if teleport_delay.is_stopped():
 			teleport_delay.start()
 			teleport_pos = world_position
 	return
 func verify_body(click_pos: Vector2) -> bool:
+	var is_in_range:bool = false
+	var is_shadow:bool = false
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = click_pos
@@ -65,19 +66,21 @@ func verify_body(click_pos: Vector2) -> bool:
 	# Access the parent Area2D
 	var parent_area = actual_range.get_parent()
 	if not parent_area is Area2D:
-		return false  # Handle the case where the parent is not an Area2D
+		return false
 	query.collision_mask = parent_area.collision_layer
 	var results = space_state.intersect_point(query)
 	for result in results:
 		if result.collider == parent_area:
-			return true
+			is_in_range = true
+		if result.collider.is_in_group("shadow"):
+			is_shadow = true
+		if is_in_range and is_shadow:
+			break
+	if is_in_range and is_shadow:
+		return true
 	return false
 		
 func teleport_to_area():
-	shadow_verifier.position = global_position
-	shadow_verifier.target_position = global_position
-	if not shadow_verifier.is_colliding():
-		return
 	if not verify_body(teleport_pos):
 		return
 	parent.player_state = 'shadow_walk'

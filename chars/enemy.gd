@@ -20,12 +20,14 @@ var stop_chase:bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fov: Area2D = $fov
-@onready var fov_range_big: CollisionShape2D = $fov/fov_range_big
-@onready var fov_range_medium: CollisionShape2D = $fov/fov_range_medium
-@onready var fov_range_small: CollisionShape2D = $fov/fov_range_small
+@onready var fov_range_big: CollisionPolygon2D = $fov/fov_range_big
+@onready var fov_range_medium: CollisionPolygon2D = $fov/fov_range_medium
+@onready var fov_range_small: CollisionPolygon2D = $fov/fov_range_small
+@onready var fov_big: Polygon2D = $fov/fov_big
+@onready var fov_small: Polygon2D = $fov/fov_small
 
 
-@onready var current_fov: CollisionShape2D
+@onready var current_fov: CollisionPolygon2D
 @onready var player_finder: RayCast2D = $player_finder
 @onready var player:CharacterBody2D
 @onready var perma_player:CharacterBody2D
@@ -36,9 +38,18 @@ var stop_chase:bool = false
 @onready var move_timer: Timer = $move_timer
 @onready var searching_timer: Timer = $searching_timer
 @onready var look_timer: Timer = $look_timer
+@onready var attack_timer: Timer = $attack_timer
 
-@onready var light_source: PointLight2D = $"../PointLight2D"
+
+
+
+@onready var light_source: PointLight2D = $"../lightsources/PointLight2D"
 @onready var light_source_finder: RayCast2D = $light_source_finder
+
+
+@onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
+@onready var shadow_collision: CollisionShape2D = $shadow_checker/shadow_collision
+@onready var shadow_checker: Area2D = $shadow_checker
 
 var in_shadow:bool = false
 
@@ -52,23 +63,33 @@ var move_sequence: Array = [
 
 
 func light_verifier():
-	var light_pos = light_source.global_position
-	light_source_finder.target_position = to_local(light_pos)
-	if light_source_finder.is_colliding():
-		in_shadow = true
+	if in_shadow:
 		fov_range_small.disabled = false
 		
 		fov_range_big.disabled = true
 		fov_range_medium.disabled = true
+		fov_big.visible = false
+		fov_small.visible = true
 		current_fov = fov_range_small
-		
 	else:
-		in_shadow = false
 		fov_range_big.disabled = false
 		fov_range_medium.disabled = false
-
+		fov_big.visible = true
+		fov_small.visible = false
 		fov_range_small.disabled = true
 		current_fov = fov_range_big
+	
+	
+	for area in shadow_checker.get_overlapping_areas():
+		if not area.is_in_group("shadow"):
+			continue
+		in_shadow = true
+		return
+		
+	in_shadow = false
+	
+		
+
 		
 		
 func _rotate_fov_to_dir(direction:Vector2):
@@ -88,6 +109,17 @@ func _ready() -> void:
 	initial_position = global_position
 	actual_move = last_move
 	_movement_processor()
+	shadow_checker.add_to_group("shadow")
+
+func deal_damage():
+	if get_slide_collision_count()>0:
+		for collide in range(get_slide_collision_count()):
+			var body_collided = get_slide_collision(collide).get_collider()
+			if body_collided is CharacterBody2D:
+				if body_collided.name == 'basechar' and attack_timer.is_stopped():
+					body_collided.take_damage(global_position)
+					attack_timer.start(0.5)
+
 
 func _process(delta: float) -> void:
 	player_anim_verifier(direction)
@@ -95,7 +127,7 @@ func _process(delta: float) -> void:
 	detect_player()
 	setup_target_ray()
 	light_verifier()
-	
+	deal_damage()
 
 
 
@@ -172,7 +204,7 @@ func detect_player() -> void:
 			if is_colliding():
 				return
 				
-			if body.is_in_shadow() and enemy_state == 'walking':
+			if body.is_in_shadow() and enemy_state != 'chasing':
 				return 
 				
 			player = body
@@ -199,6 +231,7 @@ func move_nav_agent(pos):
 	
 	move_and_slide()
 
+
 func setup_target_ray():
 	if not perma_player:
 		return
@@ -210,9 +243,6 @@ func is_in_vision(search_body):
 	for body in fov.get_overlapping_bodies():
 		if body != search_body:
 			continue
-		print("***__***")
-		print(search_body.global_position)
-		print(body)
 		if body.is_in_group("followable"):
 			return true
 	return false
