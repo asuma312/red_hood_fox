@@ -187,7 +187,6 @@ shape = SubResource("RectangleShape2D_fett5")
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
 modulate = Color(0, 0, 0, 0.384314)
 position = Vector2(-4, 12)
-scale = Vector2(1, 1)
 skew = 0.698132
 sprite_frames = SubResource("SpriteFrames_gbgqy")
 animation = &"idle_down"

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 10
+var speed = 95
 var last_move = "up"
 var last_index = 0
 var actual_move
@@ -57,7 +57,7 @@ var stop_chase:bool = false
 
 
 @onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
-@onready var shadow_collision: CollisionShape2D = $shadow_checker/shadow_collision
+@onready var shadow_collision: CollisionPolygon2D = $shadow_checker/shadow_collision
 @onready var shadow_checker: Area2D = $shadow_checker
 
 var in_shadow:bool = false

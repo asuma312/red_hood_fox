@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cxx63faeptdpg"]
+[gd_scene load_steps=37 format=3 uid="uid://cxx63faeptdpg"]
 
 [ext_resource type="Script" path="res://chars/enemy.gd" id="1_jtfdr"]
 [ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="1_nierr"]
@@ -144,9 +144,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxpn"]
 size = Vector2(8, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5jxq"]
-size = Vector2(8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
 atlas = ExtResource("3_e1iyy")
@@ -303,17 +300,16 @@ shape = SubResource("RectangleShape2D_kaxpn")
 
 [node name="shadow_checker" type="Area2D" parent="."]
 
-[node name="shadow_collision" type="CollisionShape2D" parent="shadow_checker"]
-shape = SubResource("RectangleShape2D_s5jxq")
-
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
 modulate = Color(0, 0, 0, 0.384314)
 position = Vector2(-4, 12)
-scale = Vector2(1, 1)
 skew = 0.698132
 sprite_frames = SubResource("SpriteFrames_grnwl")
 animation = &"idle_down"
 flip_v = true
+
+[node name="shadow_collision" type="CollisionPolygon2D" parent="shadow_checker"]
+polygon = PackedVector2Array(-5, 7, -6, 8, -5, 8, -7, 10, -8, 11, -8, 12, -11, 16, -11, 17, -5, 17, -4, 16, 0, 12, 3, 11, 3, 8, 5, 7)
 
 [node name="fovs" type="Node2D" parent="."]
 
@@ -340,6 +336,7 @@ color = Color(0, 0, 0, 0.243137)
 polygon = PackedVector2Array(3, -2, 68, -30, 67, 0, 66, 31)
 
 [node name="fov_polyon_checkers_big" type="Node2D" parent="fovs"]
+visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(261, -118)
@@ -490,12 +487,14 @@ autostart = true
 [node name="navigation" type="Node2D" parent="."]
 
 [node name="light_source_finder" type="RayCast2D" parent="navigation"]
+position = Vector2(0, -2)
 target_position = Vector2(0, 4)
 collision_mask = 6
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation"]
 
 [node name="player_finder" type="RayCast2D" parent="navigation"]
+position = Vector2(11, 3)
 collision_mask = 6
 
 [connection signal="timeout" from="timers/searching_timer" to="." method="_on_searching_timer_timeout"]

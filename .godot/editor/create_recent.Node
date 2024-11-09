@@ -1,8 +1,8 @@
+CollisionPolygon2D
 Node2D
 Area2D
 TileMapLayer
 Node
-CollisionPolygon2D
 TileMapLayer
 Polygon2D
 RayCast2D
