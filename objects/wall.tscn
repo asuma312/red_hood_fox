@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwdfn4aelsci4"]
+
+[ext_resource type="Script" path="res://objects/wall.gd" id="1_ywv0g"]
+[ext_resource type="Texture2D" uid="uid://d2en6ib60v3ls" path="res://assets/wall.png" id="2_1j78e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn1cl"]
+size = Vector2(381.5, 49)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hgb61"]
+polygon = PackedVector2Array(174.554, -94.6704, 175.554, 288.33, 221.554, 286.33, 222.554, -96.6704)
+
+[node name="wall" type="StaticBody2D"]
+z_index = 1
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_ywv0g")
+
+[node name="invisiblecollision" type="Area2D" parent="."]
+
+[node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
+z_index = 1
+position = Vector2(0.5, 4.5897e-07)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_mn1cl")
+
+[node name="wall" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1, 0.999996)
+rotation = 1.5708
+scale = Vector2(1.26199, 1)
+texture = ExtResource("2_1j78e")
+region_enabled = true
+region_rect = Rect2(9.25049, 180.975, 305.541, 50.9834)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 1
+position = Vector2(-9, -30)
+color = Color(0, 0, 0, 0.494118)
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(25, -152)
+rotation = 1.5708
+polygon = PackedVector2Array(-35, 17, 167, 15, 344, 17, 346, 29, -34, 31)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-198.554, -93.3296)
+occluder = SubResource("OccluderPolygon2D_hgb61")
+
+[connection signal="body_entered" from="invisiblecollision" to="." method="_on_invisiblecollision_body_entered"]
+[connection signal="body_exited" from="invisiblecollision" to="." method="_on_invisiblecollision_body_exited"]

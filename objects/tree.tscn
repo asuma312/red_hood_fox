@@ -27,6 +27,8 @@ region_enabled = true
 region_rect = Rect2(-1.32677, 8.14317, 80.1653, 85.9504)
 
 [node name="shadow" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="shadow" type="Sprite2D" parent="shadow"]
 modulate = Color(0.140447, 0.140447, 0.140447, 1)

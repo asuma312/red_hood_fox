@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-var speed = 100
+@export var speed:int = 100
+@export var time_to_move_shadow_arrow:float = 0.5
+@export var knockback_strenght:int = 50
 var player_state = 'idle'
 var direction
 var last_direction
@@ -9,6 +11,7 @@ var in_shadow:bool = true
 var is_writing:bool = true
 var is_cheat_text_reset:bool = false
 var can_write:bool = true
+var old_collisions:Array = []
 
 var skill_info:Dictionary = {}
 
@@ -28,7 +31,7 @@ var skill_info:Dictionary = {}
 @onready var cheat_code: RichTextLabel = $cheat_code
 @onready var auto_path: NavigationAgent2D = $auto_path
 
-@onready var shadow_walk_node: Node2D = $shadow_walk_node
+@onready var shadow_walk_node: Node2D = $rotators/shadow_walk_node
 
 @onready var cheat_node
 @onready var codes ={
@@ -43,14 +46,13 @@ func _physics_process(delta: float) -> void:
 			player_state = "walking"
 		
 		velocity = direction*speed
+		rotate_necessary(direction)
 		move_and_slide()
 		last_direction = direction
 	elif player_state == "shadow_walk":
 		shadow_walk()
 	elif direction == Vector2(0,0):
 		player_state = 'idle'
-		
-	
 	light_verifier()
 	
 func is_in_shadow()->bool:
@@ -67,16 +69,29 @@ func _process(delta: float) -> void:
 			player_state == 'idle'
 	player_anim_verifier()
 
-
-
+func rotate_necessary(dir):
+	var rotators: Node2D = $rotators
+	var angle = dir.angle()
+	rotators.rotation = angle
 	
 func shadow_walk():
 	print("moving")
 	var pos = skill_info.target_position
 	var temp_speed = skill_info.temp_speed
+	if old_collisions.size() == 0:
+		old_collisions = [self.collision_layer,self.collision_mask]
+	collision_layer = 0
+	collision_mask = 0
 	move_nav_agent(pos,temp_speed)
 	if auto_path.is_navigation_finished():
+		print("finish")
 		player_state = 'idle'
+		collision_layer = old_collisions[0]
+		collision_mask = old_collisions[1]
+		old_collisions = []
+		print(old_collisions)
+
+		
 		return
 	
 func move_nav_agent(pos,temp_speed=null):
@@ -133,6 +148,7 @@ func _input(event: InputEvent) -> void:
 				is_cheat_text_reset = true
 
 func detect_code(text):
+	print(text)
 	if not codes.get(text):
 		return "WRONG CODE"
 	else:
@@ -169,25 +185,21 @@ func player_anim_verifier():
 		
 func light_verifier():
 	for area in shadow_checker.get_overlapping_areas():
-		if not area.is_in_group("shadow"):
+		if not area.is_in_group("light"):
 			continue
-		in_shadow = true
+#for light levels need the in_shadow to be true and the outside for in_shadow false
+#		if not area.is_in_group("shadow"):
+#			continue
+		in_shadow = false
 		shadow_checker.visible = false
 		return
-	in_shadow = false
+	in_shadow = true
 	shadow_checker.visible = true
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(event)
-
-
 func take_damage(dir_damage):
 
 	var knockback_direction = -self.global_position.direction_to(dir_damage)
-	var knockback_strength = 50
 
-	self.global_position += knockback_direction * knockback_strength
+	self.global_position += knockback_direction * knockback_strenght
 	ui.lost_health()
 	
 	

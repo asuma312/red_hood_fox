@@ -1,7 +1,7 @@
 extends Node2D
 const WON = preload("res://scenes/won.tscn")
 const LOSE = preload("res://scenes/lose.tscn")
-const Map = preload("res://objects/map.tscn")
+const Map = preload("res://objects/light_map.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 95
+@export var speed:int = 95
 var last_move = "up"
 var last_index = 0
 var actual_move
@@ -54,13 +54,11 @@ var stop_chase:bool = false
 
 
 
-
-
 @onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
 @onready var shadow_collision: CollisionPolygon2D = $shadow_checker/shadow_collision
 @onready var shadow_checker: Area2D = $shadow_checker
 
-var in_shadow:bool = false
+var in_shadow:bool = true
 @export_enum("left", "right", "up", "down") var move_sequence: Array[String]
 
 
@@ -103,13 +101,13 @@ func light_verifier():
 	
 	
 	for area in shadow_checker.get_overlapping_areas():
-		if not area.is_in_group("shadow"):
+		if not area.is_in_group("light"):
 			continue
-		in_shadow = true
+		in_shadow = false
 		shadow_checker.visible = false
 		return
 	shadow_checker.visible = true
-	in_shadow = false
+	in_shadow = true
 	
 				
 func _rotate_fov_to_dir(direction:Vector2):
@@ -243,9 +241,7 @@ func detect_player() -> void:
 			for temp_fov in current_fovs:
 				var parent_area = temp_fov.get_parent()
 				if player in parent_area.get_overlapping_bodies():
-					print("adding awareness")
 					awareness_level+=1
-					print(awareness_level)
 			if sight_timer.is_stopped() and enemy_state not in ["chasing","chasing_ghost","waiting_to_run"]:
 				move_timer.stop()
 				enemy_state = 'waiting_to_run'
@@ -295,7 +291,6 @@ func chase_player():
 	if not is_in_vision(player):
 		enemy_state = 'chasing_ghost'
 		last_position = player_pos
-		print("not in vision")
 		return
 		
 func is_colliding()->bool:
@@ -315,7 +310,6 @@ func chase_ghost():
 func search():
 	enemy_state = 'look'
 	if look_timer.is_stopped():
-		print("starting look timer")
 		look_timer.start(0.5)
 
 func look_around():
@@ -325,12 +319,9 @@ func look_around():
 			look_timer.start(0.5)
 	
 	if enemy_state == 'look_reverse':
-		print("look_reverse")
 		if look_timer.is_stopped() and searching_timer.is_stopped():
 			direction = -direction
-			print("look_timer is stoped")
 			if searching_timer.is_stopped():
-				print("searching_timer is stoped")
 				searching_timer.start(1)
 				enemy_state = 'look_reverse_sleep'
 
@@ -350,7 +341,6 @@ func return_to_init():
 func _on_sight_timer_timeout() -> void:
 	player = null
 	detect_player()
-	print(enemy_state)
 	if player:
 		enemy_state = 'chasing' 
 	else:
@@ -358,5 +348,4 @@ func _on_sight_timer_timeout() -> void:
 
 
 func _on_searching_timer_timeout() -> void:
-	print("searching_timer_timeout")
 	enemy_state = 'returning'

@@ -1,0 +1,528 @@
+[gd_scene load_steps=40 format=3 uid="uid://p3qw1lmnepw8"]
+
+[ext_resource type="Script" path="res://chars/enemy.gd" id="1_s02hd"]
+[ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="2_moys3"]
+[ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="3_xcbfj"]
+[ext_resource type="Texture2D" uid="uid://dgcm6iv83b1gs" path="res://assets/pngtree-olympic-flame-or-burning-torch-png-image_13255413.png" id="4_7fhug"]
+[ext_resource type="Script" path="res://chars/pngtree_olympic_flame_or_burning_torch_png_image_13255413.gd" id="5_puk0q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xay3i"]
+atlas = ExtResource("2_moys3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eae3"]
+atlas = ExtResource("2_moys3")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk3gy"]
+atlas = ExtResource("2_moys3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5rlk"]
+atlas = ExtResource("2_moys3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bc8b"]
+atlas = ExtResource("2_moys3")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipwn"]
+atlas = ExtResource("2_moys3")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wppmv"]
+atlas = ExtResource("2_moys3")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hopy2"]
+atlas = ExtResource("2_moys3")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0v23"]
+atlas = ExtResource("2_moys3")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1fsc"]
+atlas = ExtResource("2_moys3")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exofl"]
+atlas = ExtResource("2_moys3")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdl6q"]
+atlas = ExtResource("2_moys3")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwtjc"]
+atlas = ExtResource("2_moys3")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usq84"]
+atlas = ExtResource("2_moys3")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk7os"]
+atlas = ExtResource("2_moys3")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akp2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xay3i")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eae3")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk3gy")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5rlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bc8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ipwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wppmv")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hopy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0v23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1fsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exofl")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdl6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwtjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usq84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk7os")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxpn"]
+size = Vector2(8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vplg3"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ktc"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ssp"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fltle"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0xbe"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni4t2"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvhy1"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4e0e"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgma3"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tbqs"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5joi"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01tw3"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qybib"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en17j"]
+atlas = ExtResource("3_xcbfj")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grnwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkl3b")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vplg3")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ktc")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ssp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fltle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0xbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni4t2")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvhy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4e0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgma3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tbqs")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5joi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01tw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qybib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en17j")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh7i1"]
+load_path = "res://.godot/imported/light_pixel.png-b5b68a109d75a942ebedf586b464330a.ctex"
+
+[node name="enemy" type="CharacterBody2D"]
+position = Vector2(-1, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_s02hd")
+move_sequence = Array[String]([""])
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_akp2r")
+animation = &"walk_side"
+
+[node name="body_collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_kaxpn")
+
+[node name="shadow_checker" type="Area2D" parent="."]
+visible = false
+
+[node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
+modulate = Color(0, 0, 0, 0.384314)
+position = Vector2(-4, 12)
+skew = 0.698132
+sprite_frames = SubResource("SpriteFrames_grnwl")
+animation = &"idle_down"
+flip_v = true
+
+[node name="shadow_collision" type="CollisionPolygon2D" parent="shadow_checker"]
+polygon = PackedVector2Array(-5, 7, -6, 8, -5, 8, -7, 10, -8, 11, -8, 12, -11, 16, -11, 17, -5, 17, -4, 16, 0, 12, 3, 11, 3, 8, 5, 7)
+
+[node name="fovs" type="Node2D" parent="."]
+visible = false
+
+[node name="fov_range_big" type="Area2D" parent="fovs"]
+visible = false
+
+[node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_big"]
+polygon = PackedVector2Array(5, -2, 262, -118, 260, 135)
+
+[node name="fov_range_medium" type="Area2D" parent="fovs"]
+visible = false
+
+[node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_medium"]
+polygon = PackedVector2Array(4, -2, 173, -77, 173, 90)
+
+[node name="fov_range_small" type="Area2D" parent="fovs"]
+visible = false
+
+[node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_small"]
+polygon = PackedVector2Array(3, -2, 68, -31, 66, 33)
+
+[node name="fov_vision" type="Polygon2D" parent="fovs"]
+color = Color(1, 1, 1, 0.0431373)
+polygon = PackedVector2Array(3, -2, 68, -30, 67, 0, 66, 31)
+
+[node name="fov_polyon_checkers_big" type="Node2D" parent="fovs"]
+visible = false
+
+[node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(256, -115)
+collision_mask = 4
+
+[node name="RayCast2D2" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, -108)
+collision_mask = 4
+
+[node name="RayCast2D3" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, -94)
+collision_mask = 4
+
+[node name="RayCast2D4" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, -79)
+collision_mask = 4
+
+[node name="RayCast2D5" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, -63)
+collision_mask = 4
+
+[node name="RayCast2D6" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, -51)
+collision_mask = 4
+
+[node name="RayCast2D7" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, -37)
+collision_mask = 4
+
+[node name="RayCast2D8" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, -22)
+collision_mask = 4
+
+[node name="RayCast2D10" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, -11)
+collision_mask = 4
+
+[node name="RayCast2D11" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, -1)
+collision_mask = 4
+
+[node name="RayCast2D12" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 10)
+collision_mask = 4
+
+[node name="RayCast2D13" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 21)
+collision_mask = 4
+
+[node name="RayCast2D14" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 33)
+collision_mask = 4
+
+[node name="RayCast2D15" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 44)
+collision_mask = 4
+
+[node name="RayCast2D16" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 57)
+collision_mask = 4
+
+[node name="RayCast2D17" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 67)
+collision_mask = 4
+
+[node name="RayCast2D19" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 78)
+collision_mask = 4
+
+[node name="RayCast2D20" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(261, 91)
+collision_mask = 4
+
+[node name="RayCast2D21" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, 102)
+collision_mask = 4
+
+[node name="RayCast2D22" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, 112)
+collision_mask = 4
+
+[node name="RayCast2D23" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(260, 123)
+collision_mask = 4
+
+[node name="RayCast2D24" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
+target_position = Vector2(259, 132)
+collision_mask = 4
+
+[node name="fov_polyon_checkers_small" type="Node2D" parent="fovs"]
+visible = false
+
+[node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(67, -29)
+collision_mask = 4
+
+[node name="RayCast2D2" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(67, -22)
+collision_mask = 4
+
+[node name="RayCast2D3" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(67, -15)
+collision_mask = 4
+
+[node name="RayCast2D4" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(67, -7)
+collision_mask = 4
+
+[node name="RayCast2D5" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(67, 1)
+collision_mask = 4
+
+[node name="RayCast2D6" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(66, 8)
+collision_mask = 4
+
+[node name="RayCast2D7" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(66, 15)
+collision_mask = 4
+
+[node name="RayCast2D8" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(65, 22)
+collision_mask = 4
+
+[node name="RayCast2D9" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
+target_position = Vector2(65, 29)
+collision_mask = 4
+
+[node name="timers" type="Node2D" parent="."]
+
+[node name="attack_timer" type="Timer" parent="timers"]
+one_shot = true
+
+[node name="look_timer" type="Timer" parent="timers"]
+one_shot = true
+
+[node name="searching_timer" type="Timer" parent="timers"]
+one_shot = true
+
+[node name="sight_timer" type="Timer" parent="timers"]
+wait_time = 0.3
+one_shot = true
+
+[node name="move_timer" type="Timer" parent="timers"]
+wait_time = 0.2
+autostart = true
+
+[node name="navigation" type="Node2D" parent="."]
+visible = false
+
+[node name="light_source_finder" type="RayCast2D" parent="navigation"]
+position = Vector2(0, -2)
+target_position = Vector2(0, 4)
+collision_mask = 6
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation"]
+
+[node name="player_finder" type="RayCast2D" parent="navigation"]
+position = Vector2(0, 2)
+collision_mask = 6
+
+[node name="torch" type="Sprite2D" parent="."]
+position = Vector2(4, -1)
+scale = Vector2(0.025, 0.0277778)
+texture = ExtResource("4_7fhug")
+script = ExtResource("5_puk0q")
+
+[node name="light" type="PointLight2D" parent="torch"]
+position = Vector2(280, 36)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.517647)
+texture = SubResource("CompressedTexture2D_xh7i1")
+
+[node name="light_collision" type="Area2D" parent="torch/light"]
+visible = false
+collision_layer = 16
+collision_mask = 16
+
+[connection signal="timeout" from="timers/searching_timer" to="." method="_on_searching_timer_timeout"]
+[connection signal="timeout" from="timers/sight_timer" to="." method="_on_sight_timer_timeout"]
+[connection signal="timeout" from="timers/move_timer" to="." method="_on_move_timer_timeout"]

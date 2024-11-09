@@ -332,7 +332,7 @@ visible = false
 polygon = PackedVector2Array(3, -2, 68, -31, 66, 33)
 
 [node name="fov_vision" type="Polygon2D" parent="fovs"]
-color = Color(0, 0, 0, 0.243137)
+color = Color(0, 0, 0, 0.0431373)
 polygon = PackedVector2Array(3, -2, 68, -30, 67, 0, 66, 31)
 
 [node name="fov_polyon_checkers_big" type="Node2D" parent="fovs"]

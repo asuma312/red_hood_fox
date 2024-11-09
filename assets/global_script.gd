@@ -2,6 +2,8 @@ extends Node
 
 var actual_life = 3
 var max_life = 3
+
+var base_light_value = 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

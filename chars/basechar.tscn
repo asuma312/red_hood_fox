@@ -149,6 +149,7 @@ size = Vector2(8, 14)
 [node name="basechar" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_qlr3n")
+time_to_move_shadow_arrow = 1.0
 
 [node name="white_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbgqy")
@@ -179,9 +180,6 @@ offset_right = 39.0
 offset_bottom = -8.0
 theme_override_font_sizes/normal_font_size = 8
 
-[node name="shadow_walk_node" parent="." instance=ExtResource("3_xug3k")]
-visible = false
-
 [node name="auto_path" type="NavigationAgent2D" parent="."]
 
 [node name="shadow_checker" type="Area2D" parent="."]
@@ -196,5 +194,9 @@ flip_v = true
 
 [node name="shadow_collision" type="CollisionPolygon2D" parent="shadow_checker"]
 polygon = PackedVector2Array(-5, 17, -1, 13, 3, 11, 3, 8, 4, 7, -4, 7, -6, 8, -5, 9, -8, 10, -8, 12, -11, 17)
+
+[node name="rotators" type="Node2D" parent="."]
+
+[node name="shadow_walk_node" parent="rotators" instance=ExtResource("3_xug3k")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
