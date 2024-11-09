@@ -7,4 +7,4 @@
 script = ExtResource("1_bmut5")
 
 [node name="map" parent="." groups=["enemy"] instance=ExtResource("1_4idgh")]
-position = Vector2(8, 24)
+position = Vector2(-18, 45)

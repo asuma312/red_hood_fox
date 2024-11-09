@@ -339,7 +339,7 @@ polygon = PackedVector2Array(3, -2, 68, -30, 67, 0, 66, 31)
 visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
-target_position = Vector2(261, -118)
+target_position = Vector2(256, -115)
 collision_mask = 4
 
 [node name="RayCast2D2" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
@@ -494,7 +494,7 @@ collision_mask = 6
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation"]
 
 [node name="player_finder" type="RayCast2D" parent="navigation"]
-position = Vector2(11, 3)
+position = Vector2(0, 2)
 collision_mask = 6
 
 [connection signal="timeout" from="timers/searching_timer" to="." method="_on_searching_timer_timeout"]

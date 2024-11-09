@@ -1223,6 +1223,7 @@ tile_set = SubResource("TileSet_pmf0b")
 script = ExtResource("2_4x2ha")
 
 [node name="basechar" parent="." instance=ExtResource("1_ika2n")]
+z_index = 2
 position = Vector2(64, 240)
 
 [node name="Objects" type="Node2D" parent="."]
@@ -1290,6 +1291,7 @@ position = Vector2(1090, 264)
 [node name="lightsources" type="Node2D" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="lightsources"]
+visible = false
 color = Color(1, 1, 1, 0.298039)
 energy = 0.57
 
@@ -1297,7 +1299,7 @@ energy = 0.57
 position = Vector2(-1, 0)
 
 [node name="enemy" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(186, 87)
+position = Vector2(223, 76)
 move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

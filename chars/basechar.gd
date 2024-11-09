@@ -12,13 +12,15 @@ var can_write:bool = true
 
 var skill_info:Dictionary = {}
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var white_sprite: AnimatedSprite2D = $white_sprite
+@onready var black_sprite: AnimatedSprite2D = $black_sprite
+@onready var current_sprite:AnimatedSprite2D
 
 @onready var ui: CanvasLayer = $Camera2D/UI
 
 
 @onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
-@onready var shadow_collision: CollisionShape2D = $shadow_checker/shadow_collision
+@onready var shadow_collision: CollisionPolygon2D = $shadow_checker/shadow_collision
 @onready var shadow_checker: Area2D = $shadow_checker
 
 @onready var light_source: PointLight2D = $"../lightsources/PointLight2D"
@@ -147,33 +149,39 @@ func player_anim_verifier():
 	if player_state == 'walking':
 		
 		if direction.y == -1:
-			animated_sprite_2d.play("walk_up")
+			current_sprite.play("walk_up")
 			shadow_animation.play("walk_up")
 		if direction.y == 1:
-			animated_sprite_2d.play("walk_down")
+			current_sprite.play("walk_down")
 			shadow_animation.play('walk_down')
 		if direction.x == 1:
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("walk_side")
+			current_sprite.flip_h = false
+			current_sprite.play("walk_side")
 			shadow_animation.play('walk_side')
 			shadow_animation.flip_h = false
 		if direction.x == -1:
-			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("walk_side")
+			current_sprite.flip_h = true
+			current_sprite.play("walk_side")
 			shadow_animation.play("walk_side")
 			shadow_animation.flip_h = true
 
 	elif player_state == 'idle':
-		animated_sprite_2d.play("idle_down")
+		current_sprite.play("idle_down")
 		shadow_animation.play("idle_down")
 		
 func light_verifier():
+	if current_sprite:
+		current_sprite.stop()
 	for area in shadow_checker.get_overlapping_areas():
 		if not area.is_in_group("shadow"):
 			continue
 		in_shadow = true
+		shadow_checker.visible = false
+		current_sprite = black_sprite
 		return
 	in_shadow = false
+	shadow_checker.visible = true
+	current_sprite = white_sprite
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -187,3 +195,7 @@ func take_damage(dir_damage):
 
 	self.global_position += knockback_direction * knockback_strength
 	ui.lost_health()
+	
+	
+
+	

@@ -176,6 +176,9 @@ func _process(delta: float) -> void:
 		
 
 func _movement_processor():
+	if move_sequence.size() < 1:
+		return
+	
 	var next_index = (last_index + 1) % move_sequence.size()
 
 	actual_move = move_sequence[next_index]

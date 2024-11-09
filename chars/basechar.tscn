@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="1_hl4fq"]
 [ext_resource type="Script" path="res://chars/basechar.gd" id="1_qlr3n"]
 [ext_resource type="PackedScene" uid="uid://cfc0l222skq8m" path="res://ui/ui.tscn" id="3_efija"]
+[ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="3_g61ck"]
 [ext_resource type="PackedScene" uid="uid://us6cw7bv6kwn" path="res://scripts/shadow_walk_node.tscn" id="3_xug3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
@@ -17,21 +18,17 @@ region = Rect2(64, 128, 32, 32)
 atlas = ExtResource("1_hl4fq")
 region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0ssp"]
-atlas = ExtResource("1_hl4fq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhk7s"]
+atlas = ExtResource("3_g61ck")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fltle"]
-atlas = ExtResource("1_hl4fq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha5lc"]
+atlas = ExtResource("3_g61ck")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0xbe"]
-atlas = ExtResource("1_hl4fq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8om2i"]
+atlas = ExtResource("3_g61ck")
 region = Rect2(64, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ni4t2"]
-atlas = ExtResource("1_hl4fq")
-region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvhy1"]
 atlas = ExtResource("1_hl4fq")
@@ -93,16 +90,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a0ssp")
+"texture": SubResource("AtlasTexture_rhk7s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fltle")
+"texture": SubResource("AtlasTexture_ha5lc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r0xbe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ni4t2")
+"texture": SubResource("AtlasTexture_8om2i")
 }],
 "loop": true,
 "name": &"walk_down",
@@ -150,9 +144,13 @@ size = Vector2(8, 14)
 collision_mask = 3
 script = ExtResource("1_qlr3n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="white_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbgqy")
 animation = &"idle_down"
+
+[node name="black_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gbgqy")
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fett5")
@@ -181,9 +179,6 @@ visible = false
 
 [node name="shadow_checker" type="Area2D" parent="."]
 
-[node name="shadow_collision" type="CollisionShape2D" parent="shadow_checker"]
-shape = SubResource("RectangleShape2D_fett5")
-
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
 modulate = Color(0, 0, 0, 0.384314)
 position = Vector2(-4, 12)
@@ -191,5 +186,8 @@ skew = 0.698132
 sprite_frames = SubResource("SpriteFrames_gbgqy")
 animation = &"idle_down"
 flip_v = true
+
+[node name="shadow_collision" type="CollisionPolygon2D" parent="shadow_checker"]
+polygon = PackedVector2Array(-5, 17, -1, 13, 3, 11, 3, 8, 4, 7, -4, 7, -6, 8, -5, 9, -8, 10, -8, 12, -11, 17)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

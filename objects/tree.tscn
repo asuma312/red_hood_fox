@@ -3,14 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://jks884t4x3fh" path="res://assets/Trees+.png" id="1_opic6"]
 [ext_resource type="Script" path="res://objects/tree.gd" id="1_wp2xp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjbax"]
-radius = 37.0
-height = 76.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2yp2"]
+radius = 27.0185
 
-[node name="tree" type="StaticBody2D"]
+[node name="tree_light" type="StaticBody2D"]
+z_index = 1
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_wp2xp")
+
+[node name="invisiblecollision" type="Area2D" parent="."]
+
+[node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
+z_index = 1
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_y2yp2")
 
 [node name="topdowntree" type="Sprite2D" parent="."]
 z_index = 1
@@ -19,17 +26,13 @@ texture = ExtResource("1_opic6")
 region_enabled = true
 region_rect = Rect2(-1.32677, 8.14317, 80.1653, 85.9504)
 
-[node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -1)
-shape = SubResource("CapsuleShape2D_yjbax")
-
 [node name="shadow" type="Area2D" parent="."]
 
 [node name="shadow" type="Sprite2D" parent="shadow"]
 modulate = Color(0.140447, 0.140447, 0.140447, 1)
 self_modulate = Color(0, 0, 0, 0.403922)
-position = Vector2(-33.026, 47.026)
-scale = Vector2(1, 0.999134)
+position = Vector2(-40, 49)
+scale = Vector2(0.975, 0.865166)
 skew = 0.785398
 texture = ExtResource("1_opic6")
 flip_v = true
@@ -37,4 +40,16 @@ region_enabled = true
 region_rect = Rect2(-1.32677, 8.14317, 80.1653, 85.9504)
 
 [node name="shadow_collision" type="CollisionPolygon2D" parent="shadow"]
-polygon = PackedVector2Array(-36, 29, -61, 41, -77, 53, -78, 67, -66, 71, -49, 70, -25, 64, 7, 38, -9, 42)
+position = Vector2(-4, -1)
+polygon = PackedVector2Array(-36, 29, -61, 41, -77, 53, -78, 67, -66, 71, -49, 70, -25, 64, 0, 42, -7, 33)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 1
+position = Vector2(-9, -30)
+color = Color(0, 0, 0, 0.494118)
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-22, 30, -20, 25, -31, 22, -28, 18, -22, 10, -20, 2, -7, -1, 3, -2, 12, 1, 20, 10, 22, 15, 26, 19, 28, 22, 18, 25, 18, 32, 6, 30, 4, 30, 0, 40, -5, 41, -7, 33, -9, 30, -16, 32, -21, 33)
+
+[connection signal="body_entered" from="invisiblecollision" to="." method="_on_invisiblecollision_body_entered"]
+[connection signal="body_exited" from="invisiblecollision" to="." method="_on_invisiblecollision_body_exited"]
