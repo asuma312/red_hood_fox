@@ -11,3 +11,4 @@ res://scenes/lose.tscn
 res://scenes/tile_set_test.tscn
 res://objects/tree.gd
 res://chars/basechar.gd
+res://chars/enemy.gd

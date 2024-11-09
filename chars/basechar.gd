@@ -14,7 +14,7 @@ var skill_info:Dictionary = {}
 
 @onready var white_sprite: AnimatedSprite2D = $white_sprite
 @onready var black_sprite: AnimatedSprite2D = $black_sprite
-@onready var current_sprite:AnimatedSprite2D
+@onready var current_sprite:AnimatedSprite2D = $white_sprite
 
 @onready var ui: CanvasLayer = $Camera2D/UI
 
@@ -59,7 +59,6 @@ func is_in_shadow()->bool:
 func _ready() -> void:
 	GlobalScript.actual_life= 3
 	add_to_group("followable")
-	print(self.get_groups())
 
 
 func _process(delta: float) -> void:
@@ -147,7 +146,6 @@ func detect_code(text):
 func player_anim_verifier():
 	
 	if player_state == 'walking':
-		
 		if direction.y == -1:
 			current_sprite.play("walk_up")
 			shadow_animation.play("walk_up")
@@ -170,18 +168,14 @@ func player_anim_verifier():
 		shadow_animation.play("idle_down")
 		
 func light_verifier():
-	if current_sprite:
-		current_sprite.stop()
 	for area in shadow_checker.get_overlapping_areas():
 		if not area.is_in_group("shadow"):
 			continue
 		in_shadow = true
 		shadow_checker.visible = false
-		current_sprite = black_sprite
 		return
 	in_shadow = false
 	shadow_checker.visible = true
-	current_sprite = white_sprite
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

@@ -106,8 +106,9 @@ func light_verifier():
 		if not area.is_in_group("shadow"):
 			continue
 		in_shadow = true
+		shadow_checker.visible = false
 		return
-		
+	shadow_checker.visible = true
 	in_shadow = false
 	
 				

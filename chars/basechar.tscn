@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="1_hl4fq"]
 [ext_resource type="Script" path="res://chars/basechar.gd" id="1_qlr3n"]
 [ext_resource type="PackedScene" uid="uid://cfc0l222skq8m" path="res://ui/ui.tscn" id="3_efija"]
-[ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="3_g61ck"]
 [ext_resource type="PackedScene" uid="uid://us6cw7bv6kwn" path="res://scripts/shadow_walk_node.tscn" id="3_xug3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkl3b"]
@@ -18,17 +17,21 @@ region = Rect2(64, 128, 32, 32)
 atlas = ExtResource("1_hl4fq")
 region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhk7s"]
-atlas = ExtResource("3_g61ck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7uin"]
+atlas = ExtResource("1_hl4fq")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ha5lc"]
-atlas = ExtResource("3_g61ck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti8kw"]
+atlas = ExtResource("1_hl4fq")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8om2i"]
-atlas = ExtResource("3_g61ck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8bne"]
+atlas = ExtResource("1_hl4fq")
 region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbhh2"]
+atlas = ExtResource("1_hl4fq")
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvhy1"]
 atlas = ExtResource("1_hl4fq")
@@ -90,13 +93,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rhk7s")
+"texture": SubResource("AtlasTexture_g7uin")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ha5lc")
+"texture": SubResource("AtlasTexture_ti8kw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8om2i")
+"texture": SubResource("AtlasTexture_e8bne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbhh2")
 }],
 "loop": true,
 "name": &"walk_down",
@@ -146,9 +152,10 @@ script = ExtResource("1_qlr3n")
 
 [node name="white_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbgqy")
-animation = &"idle_down"
+animation = &"walk_down"
 
 [node name="black_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_gbgqy")
 animation = &"walk_down"
 
