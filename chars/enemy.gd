@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var speed = 95
+var speed = 10
 var last_move = "up"
 var last_index = 0
 var actual_move
 var enemy_state
 var direction = Vector2.ZERO
 var initial_position:Vector2
-var awareness_level:int = 1
+var awareness_level:int = 0
 
 var vectors = {
 	"up": Vector2(0, -1),
@@ -19,38 +19,41 @@ var vectors = {
 var last_position:Vector2
 var stop_chase:bool = false
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var fov: Area2D = $fov
-@onready var fov_range_big: CollisionPolygon2D = $fov/fov_range_big
-@onready var fov_range_medium: CollisionPolygon2D = $fov/fov_range_medium
-@onready var fov_range_small: CollisionPolygon2D = $fov/fov_range_small
-@onready var fov_big: Polygon2D = $fov/fov_big
-@onready var visible_fov: RayCast2D = $fov/fov_big/visible_fov
+@onready var animated_sprite_2d: AnimatedSprite2D = $animation
 
-@onready var fov_small: Polygon2D = $fov/fov_small
-@onready var fov_polyon_checkers_big: Node2D = $fov/fov_polyon_checkers_big
-@onready var fov_polyon_checkers_small: Node2D = $fov/fov_polyon_checkers_small
-@onready var fov_polyon_checkers: Node2D
+
+@onready var fovs: Node2D = $fovs
+@onready var fov: Area2D = $fovs/fov_range_big
+@onready var fov_range_big: CollisionPolygon2D = $fovs/fov_range_big/collision_body
+@onready var fov_range_medium: CollisionPolygon2D = $fovs/fov_range_medium/collision_body
+@onready var fov_range_small: CollisionPolygon2D = $fovs/fov_range_small/collision_body
+@onready var fov_polyon_checkers_big: Node2D = $fovs/fov_polyon_checkers_big
+@onready var fov_polyon_checkers_small: Node2D = $fovs/fov_polyon_checkers_small
+
+@onready var fov_polyon_checkers:Node2D
+
 
 @onready var current_fovs: Array[CollisionPolygon2D]
-@onready var current_cone: Polygon2D
-@onready var player_finder: RayCast2D = $player_finder
-@onready var player:CharacterBody2D
-@onready var perma_player:CharacterBody2D
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var cheat_code: RichTextLabel = $cheat_code
 
-@onready var sight_timer: Timer = $sight_timer
-@onready var move_timer: Timer = $move_timer
-@onready var searching_timer: Timer = $searching_timer
-@onready var look_timer: Timer = $look_timer
-@onready var attack_timer: Timer = $attack_timer
-
-
-
+@onready var fov_vision: Polygon2D = $fovs/fov_vision
 
 @onready var light_source: PointLight2D = $"../lightsources/PointLight2D"
-@onready var light_source_finder: RayCast2D = $light_source_finder
+
+@onready var player_finder: RayCast2D = $navigation/player_finder
+@onready var player:CharacterBody2D
+@onready var perma_player:CharacterBody2D
+@onready var navigation_agent_2d: NavigationAgent2D = $navigation/NavigationAgent2D
+@onready var light_source_finder: RayCast2D = $navigation/light_source_finder
+
+@onready var sight_timer: Timer = $timers/sight_timer
+@onready var move_timer: Timer = $timers/move_timer
+@onready var searching_timer: Timer = $timers/searching_timer
+@onready var look_timer: Timer = $timers/look_timer
+@onready var attack_timer: Timer = $timers/attack_timer
+
+
+
+
 
 
 @onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
@@ -62,7 +65,7 @@ var in_shadow:bool = false
 
 
 func fov_polygons():
-	if not current_cone:
+	if not fov_polyon_checkers:
 		return
 	var array_vector = []
 	array_vector.append(Vector2(0,0))
@@ -76,8 +79,9 @@ func fov_polygons():
 			_position = polygon.get_collision_point()
 			_position = polygon.to_local(_position)
 			array_vector.append(_position)
+	
 	array_vector.append(Vector2(0,0))
-	current_cone.polygon = array_vector
+	fov_vision.polygon = array_vector
 
 func light_verifier():	
 	fov_polygons()
@@ -88,21 +92,14 @@ func light_verifier():
 		fov_range_medium.disabled = true
 
 		current_fovs = [fov_range_small]
-		
-		fov_big.visible = false
-		fov_small.visible = true
-		current_cone = fov_small
 		fov_polyon_checkers = fov_polyon_checkers_small
 	else:
 		fov_range_big.disabled = false
 		fov_range_medium.disabled = false
 		fov_range_small.disabled = false
 		current_fovs = [fov_range_big,fov_range_medium,fov_range_small]
-		
-		fov_big.visible = true
-		fov_small.visible = false
-		current_cone = fov_big
 		fov_polyon_checkers = fov_polyon_checkers_big
+	fov = current_fovs[0].get_parent()
 	
 	
 	for area in shadow_checker.get_overlapping_areas():
@@ -113,12 +110,7 @@ func light_verifier():
 		
 	in_shadow = false
 	
-		
-
-
-
-
-		
+				
 func _rotate_fov_to_dir(direction:Vector2):
 	if not direction:
 		return
@@ -126,8 +118,7 @@ func _rotate_fov_to_dir(direction:Vector2):
 		direction = direction.normalized()
 
 		var angle = direction.angle()
-
-		fov.rotation = angle
+		fovs.rotation = angle
 	else:
 		print("Erro: vetor de direção inválido")
 
@@ -174,7 +165,11 @@ func _process(delta: float) -> void:
 	elif enemy_state == 'look' or enemy_state == 'look_reverse':
 		look_around()
 
-
+	elif enemy_state == 'waiting_to_run':
+		pass
+	
+	elif enemy_state == 'idle':
+		pass
 	
 
 
@@ -224,21 +219,6 @@ func player_anim_verifier(dir: Vector2) -> void:
 	elif enemy_state == 'idle':
 		animated_sprite_2d.play("idle_down")
 		
-func is_player_in_fov(player_pos: Vector2) -> bool:
-	for fov in current_fovs:
-		# Get the polygon points in local space
-		var local_polygon_points = fov.polygon
-		# Get the global transform
-		var global_transform = fov.get_global_transform_with_canvas()
-		# Transform the local points to global coordinates
-		var global_polygon_points = []
-		for point in local_polygon_points:
-			var global_point = global_transform * point
-			global_polygon_points.append(global_point)
-		# Check if the player's position is inside the polygon
-		if Geometry2D.is_point_in_polygon(player_pos, global_polygon_points):
-			return true  # Player is inside this FOV
-	return false  # Player is not inside any FOV
 
 	
 	
@@ -251,13 +231,17 @@ func detect_player() -> void:
 				
 			if body.is_in_shadow() and enemy_state != 'chasing':
 				return
-			
+			awareness_level = 0
 
 			player = body
 			perma_player = player
-			print(is_player_in_fov(player.global_position))
-				
-			
+			var player_distance = player_finder.to_local(player.global_position)
+			for temp_fov in current_fovs:
+				var parent_area = temp_fov.get_parent()
+				if player in parent_area.get_overlapping_bodies():
+					print("adding awareness")
+					awareness_level+=1
+					print(awareness_level)
 			if sight_timer.is_stopped() and enemy_state not in ["chasing","chasing_ghost","waiting_to_run"]:
 				move_timer.stop()
 				enemy_state = 'waiting_to_run'

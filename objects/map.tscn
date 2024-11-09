@@ -1297,71 +1297,7 @@ energy = 0.57
 position = Vector2(-1, 0)
 
 [node name="enemy" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(420, 315)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy10" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(392, 167)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy14" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(318, 30)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy15" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(604, 20)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy16" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(830, 22)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy17" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(830, 22)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy18" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(1052, 21)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy11" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(601, 155)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy12" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(811, 123)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy13" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(1032, 182)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy5" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(400, 448)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy6" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(615, 463)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy7" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(808, 408)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy9" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(939, 518)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy2" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(613, 285)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy3" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(826, 244)
-move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
-
-[node name="enemy4" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(932, 317)
+position = Vector2(186, 87)
 move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
