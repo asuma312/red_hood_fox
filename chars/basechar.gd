@@ -6,7 +6,7 @@ var direction
 var last_direction
 
 var in_shadow:bool = true
-var is_writing:bool = false
+var is_writing:bool = true
 var is_cheat_text_reset:bool = false
 var can_write:bool = true
 
@@ -93,10 +93,10 @@ func move_nav_agent(pos,temp_speed=null):
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed==true:
+		cheat_code.visible = is_writing
 		if event.is_action("startwriting"):
-			is_writing = true if not is_writing else false
+			is_writing = true
 			is_cheat_text_reset = true
-			cheat_code.visible = is_writing
 			cheat_code.text = 'Insert a code'
 			if cheat_node:
 				cheat_node.visible = false

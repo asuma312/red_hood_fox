@@ -1228,70 +1228,64 @@ position = Vector2(64, 240)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="tree" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(826, 495)
-
-[node name="tree3" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(563, 536)
-
-[node name="tree4" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(675, 370)
-
-[node name="tree22" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(511, 379)
-
-[node name="tree5" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(657, 197)
-
-[node name="tree8" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(630, 76)
-
-[node name="tree9" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(393, 86)
+position = Vector2(392, 380)
 
 [node name="tree10" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(419, 254)
+position = Vector2(214, 528)
 
 [node name="tree11" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(362, 514)
+position = Vector2(367, 497)
 
 [node name="tree12" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(142, 509)
+position = Vector2(578, 523)
 
 [node name="tree13" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(181, 339)
+position = Vector2(774, 472)
 
 [node name="tree14" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(196, 87)
+position = Vector2(895, 567)
 
 [node name="tree15" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(263, 197)
-
-[node name="tree16" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(320, 394)
-
-[node name="tree17" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(678, 580)
-
-[node name="tree19" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(998, 36)
-
-[node name="tree20" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(1053, 394)
-
-[node name="tree21" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(1028, 192)
-
-[node name="tree18" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(963, 556)
-
-[node name="tree6" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(817, 85)
-
-[node name="tree7" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(921, 339)
+position = Vector2(1084, 531)
 
 [node name="tree2" parent="Objects" instance=ExtResource("4_jxtm7")]
-position = Vector2(914, 170)
+position = Vector2(301, 247)
+
+[node name="tree16" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(286, 101)
+
+[node name="tree17" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(481, 43)
+
+[node name="tree19" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(969, 26)
+
+[node name="tree20" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(1079, 80)
+
+[node name="tree18" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(706, 68)
+
+[node name="tree3" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(495, 215)
+
+[node name="tree4" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(642, 353)
+
+[node name="tree5" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(709, 181)
+
+[node name="tree6" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(844, 312)
+
+[node name="tree7" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(950, 155)
+
+[node name="tree8" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(1003, 401)
+
+[node name="tree9" parent="Objects" instance=ExtResource("4_jxtm7")]
+position = Vector2(1090, 264)
 
 [node name="lightsources" type="Node2D" parent="."]
 
@@ -1300,9 +1294,75 @@ color = Color(1, 1, 1, 0.298039)
 energy = 0.57
 
 [node name="enemies" type="Node2D" parent="."]
+position = Vector2(-1, 0)
 
 [node name="enemy" parent="enemies" instance=ExtResource("6_ggq5o")]
-position = Vector2(524, 269)
+position = Vector2(420, 315)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy10" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(392, 167)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy14" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(318, 30)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy15" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(604, 20)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy16" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(830, 22)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy17" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(830, 22)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy18" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(1052, 21)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy11" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(601, 155)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy12" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(811, 123)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy13" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(1032, 182)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy5" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(400, 448)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy6" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(615, 463)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy7" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(808, 408)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy9" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(939, 518)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy2" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(613, 285)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy3" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(826, 244)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
+
+[node name="enemy4" parent="enemies" instance=ExtResource("6_ggq5o")]
+position = Vector2(932, 317)
+move_sequence = Array[String](["up", "up", "up", "up", "up", "down", "down", "down", "down"])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
