@@ -173,7 +173,6 @@ offset_top = -32.0
 offset_right = 39.0
 offset_bottom = -8.0
 theme_override_font_sizes/normal_font_size = 8
-text = "testqweqwewq"
 
 [node name="shadow_walk_node" parent="." instance=ExtResource("3_xug3k")]
 visible = false
