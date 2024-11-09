@@ -3,7 +3,7 @@ extends Node2D
 var activated:bool = false
 var can_teleport:bool = false
 var teleport_pos:Vector2
-var temp_speed = 900
+var temp_speed = 600
 
 @onready var parent: CharacterBody2D = $".."
 @onready var in_shadow: CollisionShape2D = $range/in_shadow
