@@ -75,7 +75,6 @@ func rotate_necessary(dir):
 	rotators.rotation = angle
 	
 func shadow_walk():
-	print("moving")
 	var pos = skill_info.target_position
 	var temp_speed = skill_info.temp_speed
 	if old_collisions.size() == 0:
@@ -84,7 +83,6 @@ func shadow_walk():
 	collision_mask = 0
 	move_nav_agent(pos,temp_speed)
 	if auto_path.is_navigation_finished():
-		print("finish")
 		player_state = 'idle'
 		collision_layer = old_collisions[0]
 		collision_mask = old_collisions[1]
@@ -187,12 +185,23 @@ func light_verifier():
 	for area in shadow_checker.get_overlapping_areas():
 		if not area.is_in_group("light"):
 			continue
-#for light levels need the in_shadow to be true and the outside for in_shadow false
-#		if not area.is_in_group("shadow"):
-#			continue
+
+		var from = shadow_checker.global_position
+		var to = area.global_position
+		var space_state = get_world_2d().direct_space_state
+		var raycast = PhysicsRayQueryParameters2D.new()
+		raycast.from = from
+		raycast.to = to
+		raycast.exclude = [shadow_checker]
+		var collision = space_state.intersect_ray(raycast)	
+		raycast = null
+		if collision:
+			continue  
+
 		in_shadow = false
 		shadow_checker.visible = false
 		return
+
 	in_shadow = true
 	shadow_checker.visible = true
 func take_damage(dir_damage):

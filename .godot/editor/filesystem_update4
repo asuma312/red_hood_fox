@@ -1,15 +1,9 @@
-<<<<<<< Updated upstream
-=======
-res://scenes/tile_set_test.tscn
-res://main.tscn
->>>>>>> Stashed changes
 res://objects/map.tscn
 res://objects/tileset.tres
 res://main.tscn
 res://scripts/shadow_walk_node.tscn
 res://chars/basechar.tscn
 res://objects/tree.tscn
-<<<<<<< Updated upstream
 res://chars/basechar.gd
 res://chars/enemy.gd
 res://scripts/shadow_walk_node.gd
@@ -23,11 +17,3 @@ res://objects/wall.gd
 res://ui.gd
 res://assets/global_script.gd
 res://chars/pngtree_olympic_flame_or_burning_torch_png_image_13255413.gd
-=======
-res://chars/enemy.tscn
-res://scripts/shadow_walk_node.tscn
-res://scenes/won.tscn
-res://ui/ui.tscn
-res://ui/hearth_container.tscn
-res://scenes/lose.tscn
->>>>>>> Stashed changes

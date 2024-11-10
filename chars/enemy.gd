@@ -126,7 +126,6 @@ func _ready() -> void:
 	initial_position = global_position
 	actual_move = last_move
 	_movement_processor()
-	shadow_checker.add_to_group("shadow")
 
 func deal_damage():
 	if get_slide_collision_count()>0:
@@ -178,12 +177,12 @@ func _movement_processor():
 	if move_sequence.size() < 1:
 		return
 	
-	var next_index = (last_index + 1) % move_sequence.size()
+	var next_index = (int(last_index) + 1) % move_sequence.size()
 
 	actual_move = move_sequence[next_index]
 	last_move = actual_move
 	direction = vectors[actual_move]
-	last_index +=1
+	last_index +=0.1
 
 
 func _on_move_timer_timeout() -> void:

@@ -163,10 +163,6 @@ animation = &"walk_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fett5")
 
-[node name="light_source_finder" type="RayCast2D" parent="."]
-target_position = Vector2(0, 4)
-collision_mask = 6
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
@@ -183,6 +179,8 @@ theme_override_font_sizes/normal_font_size = 8
 [node name="auto_path" type="NavigationAgent2D" parent="."]
 
 [node name="shadow_checker" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
 
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
 modulate = Color(0, 0, 0, 0.384314)
@@ -198,5 +196,8 @@ polygon = PackedVector2Array(-5, 17, -1, 13, 3, 11, 3, 8, 4, 7, -4, 7, -6, 8, -5
 [node name="rotators" type="Node2D" parent="."]
 
 [node name="shadow_walk_node" parent="rotators" instance=ExtResource("3_xug3k")]
+visible = false
+
+[node name="light_checkers" type="Node2D" parent="."]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

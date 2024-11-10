@@ -306,6 +306,8 @@ shape = SubResource("RectangleShape2D_kaxpn")
 
 [node name="shadow_checker" type="Area2D" parent="."]
 visible = false
+collision_layer = 16
+collision_mask = 16
 
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
 modulate = Color(0, 0, 0, 0.384314)
@@ -319,29 +321,34 @@ flip_v = true
 polygon = PackedVector2Array(-5, 7, -6, 8, -5, 8, -7, 10, -8, 11, -8, 12, -11, 16, -11, 17, -5, 17, -4, 16, 0, 12, 3, 11, 3, 8, 5, 7)
 
 [node name="fovs" type="Node2D" parent="."]
-visible = false
 
 [node name="fov_range_big" type="Area2D" parent="fovs"]
 visible = false
+collision_layer = 17
+collision_mask = 17
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_big"]
 polygon = PackedVector2Array(5, -2, 262, -118, 260, 135)
 
 [node name="fov_range_medium" type="Area2D" parent="fovs"]
 visible = false
+collision_layer = 17
+collision_mask = 17
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_medium"]
 polygon = PackedVector2Array(4, -2, 173, -77, 173, 90)
 
 [node name="fov_range_small" type="Area2D" parent="fovs"]
 visible = false
+collision_layer = 17
+collision_mask = 17
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_small"]
 polygon = PackedVector2Array(3, -2, 68, -31, 66, 33)
 
 [node name="fov_vision" type="Polygon2D" parent="fovs"]
+visible = false
 color = Color(1, 1, 1, 0.0431373)
-polygon = PackedVector2Array(3, -2, 68, -30, 67, 0, 66, 31)
 
 [node name="fov_polyon_checkers_big" type="Node2D" parent="fovs"]
 visible = false
@@ -519,7 +526,6 @@ shadow_color = Color(0, 0, 0, 0.517647)
 texture = SubResource("CompressedTexture2D_xh7i1")
 
 [node name="light_collision" type="Area2D" parent="torch/light"]
-visible = false
 collision_layer = 16
 collision_mask = 16
 

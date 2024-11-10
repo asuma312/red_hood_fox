@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func setup_torch_range():
-	var base_light_multiplier = 40
+	var base_light_multiplier = 50
 	torch_light.texture_scale = base_light_multiplier * GlobalScript.base_light_value
 	
 	if torch_light.texture:
