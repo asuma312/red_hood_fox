@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6pm34rclcb4g"]
+
+[ext_resource type="Script" path="res://1_quarter_tileset.gd" id="1_c1n44"]
+[ext_resource type="Texture2D" uid="uid://d3qt0ewcqr86a" path="res://assets/tileset_white.png" id="2_yovl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r27el"]
+size = Vector2(33, 30)
+
+[node name="1_quarter_tileset" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_c1n44")
+
+[node name="area_collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(28.5, 29)
+shape = SubResource("RectangleShape2D_r27el")
+
+[node name="white" type="Node2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(1.01563, 1.03448)
+
+[node name="quarter_white" type="Sprite2D" parent="white"]
+texture = ExtResource("2_yovl3")
+region_enabled = true
+region_rect = Rect2(578.053, 194.332, 32.2311, 29.265)
+
+[node name="quarter_color_black" type="ColorRect" parent="white"]
+anchors_preset = -1
+anchor_left = -0.016
+anchor_top = -0.069
+anchor_right = -0.016
+anchor_bottom = -0.069
+offset_left = -13.5385
+offset_top = -12.5667
+offset_right = 16.4615
+offset_bottom = 15.4333
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="black" type="Node2D" parent="."]
+visible = false
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(1.01563, 1.03448)
+
+[node name="quarter_black" type="Sprite2D" parent="black"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_yovl3")
+region_enabled = true
+region_rect = Rect2(578.053, 194.332, 32.2311, 29.265)
+
+[node name="quarter_color_white" type="ColorRect" parent="black"]
+anchors_preset = -1
+anchor_left = -0.016
+anchor_top = -0.069
+anchor_right = -0.016
+anchor_bottom = -0.069
+offset_left = -13.5385
+offset_top = -12.5667
+offset_right = 16.4615
+offset_bottom = 15.4333

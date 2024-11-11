@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4knjl6awhdwm"]
+
+[ext_resource type="PackedScene" uid="uid://b6pm34rclcb4g" path="res://objects/_old/1_quarter_tileset.tscn" id="1_kmuwg"]
+
+[node name="new_tileset" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="1_quarter_tileset" parent="." instance=ExtResource("1_kmuwg")]
+position = Vector2(-13, -14)
+
+[node name="1_quarter_tileset2" parent="." instance=ExtResource("1_kmuwg")]
+position = Vector2(17, -13)
+rotation = 1.5708
+
+[node name="1_quarter_tileset3" parent="." instance=ExtResource("1_kmuwg")]
+position = Vector2(16, 14)
+rotation = 3.14159
+
+[node name="1_quarter_tileset4" parent="." instance=ExtResource("1_kmuwg")]
+position = Vector2(-14, 13)
+rotation = 4.71239

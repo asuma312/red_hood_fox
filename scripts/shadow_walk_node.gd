@@ -17,10 +17,10 @@ var current_tween:Tween
 @onready var teleport_delay: Timer = $teleport_delay
 @onready var auto_path: NavigationAgent2D = $"../auto_path"
 
-@onready var shadow_verifier_small: RayCast2D = $navigation/shadow_verifyer_small
+@onready var shadow_verifier_small: RayCast2D = $navigation/shadow_verifier_small
 @onready var shadow_verifier_big: RayCast2D = $navigation/shadow_verifier_big
 @onready var shadow_verifier: RayCast2D = shadow_verifier_big
-@onready var shadow_pos: ColorRect = $shadow_pos
+@onready var shadow_pos: ColorRect = $new_shadow_pos
 @onready var shadow_pos_size = shadow_pos.get_rect().size
 var angle
 
@@ -30,23 +30,24 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	setup_range()
-	setup_shadow_pos()
 
 func setup_shadow_pos():
 	shadow_pos.position = shadow_verifier.target_position - (shadow_pos_size / 2)
 
+
 func setup_range():
-	var in_shadow_bool:bool = parent.in_shadow
+	var in_shadow_bool:bool = parent.is_in_shadow()
 	if in_shadow_bool:
 		actual_range = in_shadow
 		shadow_verifier = shadow_verifier_big
+		call_deferred('setup_shadow_pos')
 	elif not in_shadow_bool:
 		actual_range = of_shadow
 		shadow_verifier = shadow_verifier_small
+		call_deferred('setup_shadow_pos')
 		
 func verify_shadow_teleport():
 
-	
 	var pos = shadow_verifier.to_global(shadow_verifier.target_position)
 	var space_state = get_world_2d().direct_space_state
 

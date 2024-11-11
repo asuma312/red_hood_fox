@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@onready var shadow: Area2D = $shadow
 @onready var invisiblecollision: Area2D = $invisiblecollision
 
 
@@ -15,13 +14,12 @@ func _process(delta: float) -> void:
 func _on_invisiblecollision_body_entered(body: Node2D) -> void:
 	if body.name == self.name:
 		return
-	var node_tree = self.get_node("wall")
-	node_tree.modulate = Color(1, 1, 1, 0.5)  # Set to 50% transparency
-	var shadow_node_tree = self.get_node("shadow")
+	print("entered")
+	var upper_wall = self.get_node("uper_body")
+	upper_wall.modulate = Color(1, 1, 1, 0.5)
 
 func _on_invisiblecollision_body_exited(body: Node2D) -> void:
 	if body.name == self.name:
 		return
-	var node_tree = self.get_node("wall")
-	node_tree.modulate = Color(1, 1, 1, 1) 
-	var shadow_node_tree = self.get_node("shadow")
+	var upper_wall = self.get_node("uper_body")
+	upper_wall.modulate = Color(1, 1, 1, 1) 

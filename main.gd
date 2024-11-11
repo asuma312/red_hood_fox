@@ -1,8 +1,7 @@
 extends Node2D
 const WON = preload("res://scenes/won.tscn")
 const LOSE = preload("res://scenes/lose.tscn")
-const Map = preload("res://objects/light_map.tscn")
-# Called when the node enters the scene tree for the first time.
+const DARK_MAP = preload("res://objects/dark_map.tscn")
 func _ready() -> void:
 	pass
 
@@ -11,27 +10,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func reset_main_node():
+	for node in self.get_children():
+		print(node.name)
+		self.remove_child(node)
 
-func win_level():
-	print("won")
-	var childrens = self.get_children()
-	for c in childrens:
-		self.remove_child(c)
-	var won_scene = WON.instantiate()
-	self.add_child(won_scene)
-	
 func lose_screen():
-	print("lose")
-	var childrens = self.get_children()
-	for c in childrens:
-		self.remove_child(c)
-	var lose_scene = LOSE.instantiate()
-	self.add_child(lose_scene)
-	
+	reset_main_node()
+	print(self)
+	var temp_lose = LOSE.instantiate()
+	self.add_child(temp_lose)
+
 func restart():
-	print("restarting")
-	var childrens = self.get_children()
-	for c in childrens:
-		self.remove_child(c)
-	var map_scene = Map.instantiate()
-	self.add_child(map_scene)
+	reset_main_node()
+	var temp_map = DARK_MAP.instantiate()
+	self.add_child(temp_map)

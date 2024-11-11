@@ -25,9 +25,13 @@ func remove_health_container():
 func lost_health(value=1):
 	GlobalScript.actual_life -=1
 	if GlobalScript.actual_life <1:
-		var main = self.get_parent().get_parent().get_parent().get_parent().get_parent()
-		if not main:
-			return
-		main.lose_screen()
+		call_deferred("lose_screen")
 		return
-	remove_health_container()
+	call_deferred("remove_health_container")
+
+
+func lose_screen():
+	var main = get_tree().root.get_node("main")
+	if not main:
+		return
+	main.lose_screen()

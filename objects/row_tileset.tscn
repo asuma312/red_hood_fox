@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://3td2kj2vx13f"]
+
+[ext_resource type="PackedScene" uid="uid://bwlxk0501426e" path="res://objects/tileset.tscn" id="1_ml6hx"]
+
+[node name="row_tileset" type="Node2D"]
+
+[node name="tileset" parent="." instance=ExtResource("1_ml6hx")]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+position = Vector2(1, 0)
+
+[node name="tileset2" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(60, 0)
+
+[node name="tileset3" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(119, 0)
+
+[node name="tileset4" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(178, 0)
+
+[node name="tileset5" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(237, 0)
+
+[node name="tileset6" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(295, 0)
+
+[node name="tileset7" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(353, 0)
+
+[node name="tileset8" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(412, 0)
+
+[node name="tileset9" parent="." instance=ExtResource("1_ml6hx")]
+position = Vector2(471, 0)
