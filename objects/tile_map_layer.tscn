@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=4 uid="uid://b777333spvlo1"]
+
+[ext_resource type="TileSet" uid="uid://b2tc8y2c2w204" path="res://objects/new_tile_set.tres" id="1_qh0ni"]
+[ext_resource type="Script" path="res://tile_map_layer.gd" id="2_6wux7"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+//7/AAAkAAwAAAD+////AAAkAA0AAAD+/wAAAAAkAA4AAAD+/wEAAAAkAA8AAAD///7/AAAlAAwAAAD//wEAAAAlAA8AAAAAAP7/AAAmAAwAAAAAAAEAAAAmAA8AAAABAP7/AAAnAAwAAAABAP//AAAnAA0AAAABAAAAAAAnAA4AAAABAAEAAAAnAA8AAAA=")
+tile_set = ExtResource("1_qh0ni")
+script = ExtResource("2_6wux7")

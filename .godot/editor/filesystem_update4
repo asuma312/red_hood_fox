@@ -1,3 +1,13 @@
-res://shaders/invert.gdshader
-res://amio/scenes/flameanim.tscn
 res://main.tscn
+res://objects/new_tile_set.tres
+res://shaders/invert.gdshader
+res://assets/amio/scenes/flameanim.tscn
+res://objects/dark_map.tscn
+res://objects/wall.tscn
+res://chars/basechar.tscn
+res://objects/tileset.tscn
+res://objects/tile_map_layer.tscn
+res://chars/enemy_with_torch.tscn
+res://scenes/tempmap.tscn
+res://chars/enemy.gd
+res://scenes/tile_map_layer.gd

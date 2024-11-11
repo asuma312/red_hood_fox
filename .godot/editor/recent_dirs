@@ -1,12 +1,15 @@
+res://scenes
+res://objects
+<<<<<<< Updated upstream
 res://amio/scenes
 res://amio/artassets
-res://objects
+=======
+C:/Users/Daniel/Documents/stealth_game_2/web
+>>>>>>> Stashed changes
 res://shaders
 res://
 res://assets/Prototype_Character
 C:/Users/Daniel/Documents/stealth_game_2/exe
-C:/Users/Daniel/Documents/stealth_game_2/web
-res://scenes
 res://ui
 res://scripts
 res://chars

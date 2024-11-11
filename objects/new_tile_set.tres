@@ -1,0 +1,9 @@
+[gd_resource type="TileSet" format=3 uid="uid://b2tc8y2c2w204"]
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)

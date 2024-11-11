@@ -211,6 +211,7 @@ func player_anim_verifier():
 		return
 	white_sprite.play(full_animation)
 	
+	
 func light_verifier():
 	'''
 	this verify if any of the bodys is light, if it is then change

@@ -20,7 +20,7 @@ func find_obstructed_light(body):
 	query.exclude = [self]
 	query.collide_with_bodies = true
 	query.collide_with_areas = true
-	query.collision_mask = 1 << 3
+	query.collision_mask = 4
 
 	var result = space_state.intersect_ray(query)
 
@@ -36,10 +36,11 @@ func draw_on_light(body):
 	"this just draw the black/white one"
 
 	if find_obstructed_light(body):
-		return
+		return false
 	light_level +=1
 	black.visible = true
 	white.visible = false
+	return true
 	
 func draw_of_light():
 	light_level -= 1

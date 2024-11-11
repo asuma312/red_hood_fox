@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf5xefswq8mx"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bmut5"]
-[ext_resource type="PackedScene" uid="uid://dmj8bictb6orv" path="res://objects/dark_map.tscn" id="2_mjp41"]
+[ext_resource type="PackedScene" uid="uid://c1so6ob46h3d0" path="res://scenes/tempmap.tscn" id="2_6dvy5"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_bmut5")
 
-[node name="dark_map" parent="." instance=ExtResource("2_mjp41")]
+[node name="Node2D" parent="." instance=ExtResource("2_6dvy5")]

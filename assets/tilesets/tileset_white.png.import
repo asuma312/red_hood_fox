@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ub652pm0amgf"
-path="res://.godot/imported/furni.png-d167227ed31616b5f66f8fda9d07fed2.ctex"
+uid="uid://4y100301isqr"
+path="res://.godot/imported/tileset_white.png-522657837f8994970898a9fd57c34944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://amio/artassets/furni.png"
-dest_files=["res://.godot/imported/furni.png-d167227ed31616b5f66f8fda9d07fed2.ctex"]
+source_file="res://assets/tilesets/tileset_white.png"
+dest_files=["res://.godot/imported/tileset_white.png-522657837f8994970898a9fd57c34944.ctex"]
 
 [params]
 

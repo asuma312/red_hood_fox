@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://y3lxo0mn8psj"]
 
-[ext_resource type="Texture2D" uid="uid://cn5mxc7vobvl6" path="res://amio/artassets/flame.png" id="1_q6y3f"]
+[ext_resource type="Texture2D" uid="uid://cn5mxc7vobvl6" path="res://assets/amio/artassets/flame.png" id="1_q6y3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k0y4"]
 atlas = ExtResource("1_q6y3f")

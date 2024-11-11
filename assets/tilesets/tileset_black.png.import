@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn5mxc7vobvl6"
-path="res://.godot/imported/flame.png-f9a533503cdfa0bc7f103a54b5d79175.ctex"
+uid="uid://bnm2mr6jwbuh2"
+path="res://.godot/imported/tileset_black.png-5bd84198dec8d81fc0a5a75a939b8a32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://amio/artassets/flame.png"
-dest_files=["res://.godot/imported/flame.png-f9a533503cdfa0bc7f103a54b5d79175.ctex"]
+source_file="res://assets/tilesets/tileset_black.png"
+dest_files=["res://.godot/imported/tileset_black.png-5bd84198dec8d81fc0a5a75a939b8a32.ctex"]
 
 [params]
 
