@@ -1,3 +1,5 @@
+AnimatedSprite2D
+TileMap
 Timer
 CollisionShape2D
 StaticBody2D
@@ -11,5 +13,3 @@ NavigationRegion2D
 PointLight2D
 DirectionalLight2D
 TileMapLayer
-CollisionPolygon2D
-LightOccluder2D
