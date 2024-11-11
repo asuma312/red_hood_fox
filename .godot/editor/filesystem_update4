@@ -1,12 +1,3 @@
-res://main.tscn
 res://shaders/invert.gdshader
-res://objects/dark_map.tscn
-res://chars/enemy_with_torch.tscn
-res://chars/basechar.tscn
-res://objects/row_tileset.tscn
-res://objects/tileset.tscn
-res://scripts/shadow_walk_node.tscn
-res://ui/ui.tscn
-res://ui.gd
-res://main.gd
-res://chars/basechar.gd
+res://amio/scenes/flameanim.tscn
+res://main.tscn
