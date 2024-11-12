@@ -1,31 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwdfn4aelsci4"]
+[gd_scene load_steps=5 format=3 uid="uid://csa5v0x0ea8w1"]
 
-[ext_resource type="Script" path="res://objects/wall.gd" id="1_ywv0g"]
-[ext_resource type="Texture2D" uid="uid://ub652pm0amgf" path="res://assets/amio/artassets/furni.png" id="2_3d20i"]
+[ext_resource type="Texture2D" uid="uid://ub652pm0amgf" path="res://assets/amio/artassets/furni.png" id="1_m6x30"]
+[ext_resource type="Script" path="res://objects/table.gd" id="1_xgkgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn1cl"]
-size = Vector2(1320, 343.333)
+size = Vector2(560, 356.669)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgm2c"]
-size = Vector2(320, 1310)
+size = Vector2(353.333, 486.667)
 
-[node name="wall" type="StaticBody2D"]
+[node name="table" type="StaticBody2D"]
 position = Vector2(-4, -2)
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_ywv0g")
+script = ExtResource("1_xgkgv")
 
 [node name="invisiblecollision" type="Area2D" parent="."]
 scale = Vector2(0.3, 0.3)
 
 [node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
 z_index = 1
-position = Vector2(-4.99998, -3.33329)
+position = Vector2(18.3344, -3.33337)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_mn1cl")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0.499996)
+position = Vector2(5, -10)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_vgm2c")
 
@@ -33,12 +33,12 @@ shape = SubResource("RectangleShape2D_vgm2c")
 
 [node name="player_finder" type="RayCast2D" parent="navigation"]
 
-[node name="wall" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, 1.19209e-07)
-scale = Vector2(0.282946, 0.455377)
-texture = ExtResource("2_3d20i")
+[node name="table" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(0.385013, 0.286977)
+texture = ExtResource("1_m6x30")
 region_enabled = true
-region_rect = Rect2(1602.88, 66.3077, 387.99, 874.585)
+region_rect = Rect2(117.356, 82.3466, 282.954, 565.908)
 
 [connection signal="body_entered" from="invisiblecollision" to="." method="_on_invisiblecollision_body_entered"]
 [connection signal="body_exited" from="invisiblecollision" to="." method="_on_invisiblecollision_body_exited"]

@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 	change_others()
 	player_anim_verifier()
 	state_manager()
+	light_verifier()
 
 
 func _physics_process(delta: float) -> void:
@@ -64,7 +65,6 @@ func _physics_process(delta: float) -> void:
 		
 		velocity = direction*speed
 		rotate_necessary(direction)
-		light_verifier()
 		move_and_slide()
 		last_direction = direction
 	elif direction == Vector2(0,0):
@@ -218,10 +218,8 @@ func light_verifier():
 	the in_shadow var
 	'''
 	for area in shadow_checker.get_overlapping_areas():
-		if not "tileset" in area.name:
-			continue
-		if area.light_level==0:
-			continue
+		if not area.is_in_group("light"):
+			return
 		in_shadow = false
 		return
 

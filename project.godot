@@ -52,6 +52,13 @@ do_action={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="char_bodys"
+2d_physics/layer_2="objects"
+2d_physics/layer_3="objects_no_shadows"
+2d_physics/layer_5="lights"
+
 [physics]
 
 2d/run_on_separate_thread=true

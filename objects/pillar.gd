@@ -6,6 +6,7 @@ extends StaticBody2D
 var can_move:bool = true
 var in_shadow:bool = false
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	invisiblecollision.add_to_group("shadow")
 

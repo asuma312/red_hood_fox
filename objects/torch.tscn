@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://08lfyuyv8a80"]
+
+[ext_resource type="Script" path="res://chars/torch_range.gd" id="1_gfrcw"]
+[ext_resource type="Script" path="res://objects/torch.gd" id="1_r631n"]
+[ext_resource type="Texture2D" uid="uid://cn5mxc7vobvl6" path="res://assets/amio/artassets/flame.png" id="2_if6a7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uijnk"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(0, 0, 177, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u61dl"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(177, 0, 177, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8f6i"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(354, 0, 177, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6b5j"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(0, 210, 177, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37vis"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(177, 210, 177, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_molkp"]
+atlas = ExtResource("2_if6a7")
+region = Rect2(354, 210, 177, 210)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uflmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uijnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u61dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8f6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6b5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37vis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_molkp")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[node name="torch" type="Node2D"]
+script = ExtResource("1_r631n")
+
+[node name="torch_range" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_gfrcw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="torch_range"]
+
+[node name="tilemap_range" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="tilemap_range"]
+target_position = Vector2(-482, -3)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="tilemap_range"]
+target_position = Vector2(1, -250)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="tilemap_range"]
+target_position = Vector2(396, -1)
+collision_mask = 2
+
+[node name="RayCast2D4" type="RayCast2D" parent="tilemap_range"]
+target_position = Vector2(-2, 374)
+collision_mask = 2
+
+[node name="torch_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uflmh")
+animation = &"fire"
+
+[node name="light_timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="light_timer" to="." method="_on_light_timer_timeout"]

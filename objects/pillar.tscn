@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhgqr1fi0wnmw"]
+
+[ext_resource type="Script" path="res://objects/pillar.gd" id="1_ft7yp"]
+[ext_resource type="Texture2D" uid="uid://b3c8f3skfwoif" path="res://assets/tiles_stealth_game.png" id="2_7tv0p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn1cl"]
+size = Vector2(360.291, 246.668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgm2c"]
+size = Vector2(246.667, 441.042)
+
+[node name="pillar" type="StaticBody2D"]
+position = Vector2(-4, -2)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ft7yp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -119.0
+offset_right = 37.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="uper_body" type="Sprite2D" parent="."]
+position = Vector2(1, -66)
+scale = Vector2(0.299466, 0.3)
+texture = ExtResource("2_7tv0p")
+region_enabled = true
+region_rect = Rect2(4.59021, 831.836, 251.236, 363.044)
+
+[node name="base_body" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.299466, 0.3)
+texture = ExtResource("2_7tv0p")
+region_enabled = true
+region_rect = Rect2(4.59021, 1200.23, 251.236, 72.6001)
+
+[node name="invisiblecollision" type="Area2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
+z_index = 1
+position = Vector2(3.33331, -220)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_mn1cl")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, -52.8437)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_vgm2c")
+
+[node name="navigation" type="Node2D" parent="."]
+
+[node name="player_finder" type="RayCast2D" parent="navigation"]
+
+[connection signal="body_entered" from="invisiblecollision" to="." method="_on_invisiblecollision_body_entered"]
+[connection signal="body_exited" from="invisiblecollision" to="." method="_on_invisiblecollision_body_exited"]

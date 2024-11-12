@@ -1,12 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://p3qw1lmnepw8"]
+[gd_scene load_steps=26 format=3 uid="uid://p3qw1lmnepw8"]
 
 [ext_resource type="Script" path="res://chars/enemy.gd" id="1_s02hd"]
 [ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="2_moys3"]
 [ext_resource type="Texture2D" uid="uid://cxpqxydeical0" path="res://assets/units/enemy/ennemy_black.png" id="2_qy4yl"]
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="3_xcbfj"]
 [ext_resource type="Texture2D" uid="uid://bow2y0dq4v86b" path="res://assets/units/enemy/ennemy_white.png" id="4_1w6st"]
-[ext_resource type="Texture2D" uid="uid://dgcm6iv83b1gs" path="res://assets/pngtree-olympic-flame-or-burning-torch-png-image_13255413.png" id="4_7fhug"]
-[ext_resource type="Script" path="res://chars/pngtree_olympic_flame_or_burning_torch_png_image_13255413.gd" id="5_puk0q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vplg3"]
 atlas = ExtResource("3_xcbfj")
@@ -143,7 +141,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pgv3"]
-size = Vector2(114, 272.311)
+size = Vector2(161, 252)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8eae3"]
 atlas = ExtResource("2_moys3")
@@ -207,335 +205,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxpn"]
 size = Vector2(98, 234)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xh7i1"]
-load_path = "res://.godot/imported/light_pixel.png-b5b68a109d75a942ebedf586b464330a.ctex"
-
 [node name="enemy" type="CharacterBody2D"]
 position = Vector2(-1, 1)
-collision_layer = 3
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_s02hd")
 move_sequence = Array[String]([""])
 
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-
-[node name="torch_range" type="Area2D" parent="Node2D"]
-visible = false
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/torch_range"]
-polygon = PackedVector2Array(8, -256, 182, -222, 150, -152)
-
-[node name="tilemap_range" type="Node2D" parent="Node2D"]
-
-[node name="RayCast2D" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1126, -784)
-collision_mask = 4
-
-[node name="RayCast2D2" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1070, -862)
-collision_mask = 4
-
-[node name="RayCast2D3" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-997, -954)
-collision_mask = 4
-
-[node name="RayCast2D4" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-908, -1033)
-collision_mask = 4
-
-[node name="RayCast2D5" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-824, -1093)
-collision_mask = 4
-
-[node name="RayCast2D6" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-723, -1173)
-collision_mask = 4
-
-[node name="RayCast2D7" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-568, -1244)
-collision_mask = 4
-
-[node name="RayCast2D8" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-408, -1310)
-collision_mask = 4
-
-[node name="RayCast2D9" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-236, -1344)
-collision_mask = 4
-
-[node name="RayCast2D10" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-80, -1366)
-collision_mask = 4
-
-[node name="RayCast2D11" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(91, -1351)
-collision_mask = 4
-
-[node name="RayCast2D12" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(319, -1330)
-collision_mask = 4
-
-[node name="RayCast2D13" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(460, -1278)
-collision_mask = 4
-
-[node name="RayCast2D14" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(612, -1218)
-collision_mask = 4
-
-[node name="RayCast2D15" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(742, -1148)
-collision_mask = 4
-
-[node name="RayCast2D16" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(840, -1080)
-collision_mask = 4
-
-[node name="RayCast2D17" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(915, -1015)
-collision_mask = 4
-
-[node name="RayCast2D18" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1002, -931)
-collision_mask = 4
-
-[node name="RayCast2D19" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1055, -856)
-collision_mask = 4
-
-[node name="RayCast2D20" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1112, -799)
-collision_mask = 4
-
-[node name="RayCast2D21" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1162, -731)
-collision_mask = 4
-
-[node name="RayCast2D22" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1216, -626)
-collision_mask = 4
-
-[node name="RayCast2D23" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1260, -533)
-collision_mask = 4
-
-[node name="RayCast2D24" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1287, -460)
-collision_mask = 4
-
-[node name="RayCast2D25" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1315, -400)
-collision_mask = 4
-
-[node name="RayCast2D26" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1340, -323)
-collision_mask = 4
-
-[node name="RayCast2D27" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1353, -234)
-collision_mask = 4
-
-[node name="RayCast2D28" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1367, -133)
-collision_mask = 4
-
-[node name="RayCast2D29" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1380, -54)
-collision_mask = 4
-
-[node name="RayCast2D30" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1381, 38)
-collision_mask = 4
-
-[node name="RayCast2D31" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1372, 136)
-collision_mask = 4
-
-[node name="RayCast2D32" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1358, 243)
-collision_mask = 4
-
-[node name="RayCast2D33" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1342, 349)
-collision_mask = 4
-
-[node name="RayCast2D34" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1289, 473)
-collision_mask = 4
-
-[node name="RayCast2D35" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1251, 584)
-collision_mask = 4
-
-[node name="RayCast2D36" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1191, 708)
-collision_mask = 4
-
-[node name="RayCast2D37" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1100, 821)
-collision_mask = 4
-
-[node name="RayCast2D38" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(1030, 915)
-collision_mask = 4
-
-[node name="RayCast2D39" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(977, 985)
-collision_mask = 4
-
-[node name="RayCast2D40" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(909, 1051)
-collision_mask = 4
-
-[node name="RayCast2D41" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(834, 1104)
-collision_mask = 4
-
-[node name="RayCast2D42" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(749, 1166)
-collision_mask = 4
-
-[node name="RayCast2D43" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(672, 1218)
-collision_mask = 4
-
-[node name="RayCast2D44" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(594, 1243)
-collision_mask = 4
-
-[node name="RayCast2D45" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(521, 1268)
-collision_mask = 4
-
-[node name="RayCast2D46" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(451, 1291)
-collision_mask = 4
-
-[node name="RayCast2D47" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(391, 1336)
-collision_mask = 4
-
-[node name="RayCast2D48" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(291, 1345)
-collision_mask = 4
-
-[node name="RayCast2D49" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(213, 1362)
-collision_mask = 4
-
-[node name="RayCast2D50" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(116, 1373)
-collision_mask = 4
-
-[node name="RayCast2D51" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(17, 1382)
-collision_mask = 4
-
-[node name="RayCast2D52" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-110, 1371)
-collision_mask = 4
-
-[node name="RayCast2D53" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-236, 1361)
-collision_mask = 4
-
-[node name="RayCast2D54" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-342, 1345)
-collision_mask = 4
-
-[node name="RayCast2D55" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-456, 1305)
-collision_mask = 4
-
-[node name="RayCast2D56" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-575, 1263)
-collision_mask = 4
-
-[node name="RayCast2D57" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-673, 1216)
-collision_mask = 4
-
-[node name="RayCast2D58" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-778, 1145)
-collision_mask = 4
-
-[node name="RayCast2D59" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-898, 1040)
-collision_mask = 4
-
-[node name="RayCast2D60" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-996, 963)
-collision_mask = 4
-
-[node name="RayCast2D61" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1077, 849)
-collision_mask = 4
-
-[node name="RayCast2D62" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1154, 753)
-collision_mask = 4
-
-[node name="RayCast2D63" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1206, 678)
-collision_mask = 4
-
-[node name="RayCast2D64" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1266, 537)
-collision_mask = 4
-
-[node name="RayCast2D65" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1290, 455)
-collision_mask = 4
-
-[node name="RayCast2D66" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1322, 407)
-collision_mask = 4
-
-[node name="RayCast2D67" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1348, 315)
-collision_mask = 4
-
-[node name="RayCast2D68" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1366, 176)
-collision_mask = 4
-
-[node name="RayCast2D69" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1382, 63)
-collision_mask = 4
-
-[node name="RayCast2D70" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1379, -60)
-collision_mask = 4
-
-[node name="RayCast2D71" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1368, -184)
-collision_mask = 4
-
-[node name="RayCast2D72" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1348, -289)
-collision_mask = 4
-
-[node name="RayCast2D73" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1311, -423)
-collision_mask = 4
-
-[node name="RayCast2D74" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1249, -560)
-collision_mask = 4
-
-[node name="RayCast2D75" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1211, -674)
-collision_mask = 4
-
-[node name="RayCast2D76" type="RayCast2D" parent="Node2D/tilemap_range"]
-target_position = Vector2(-1161, -735)
-collision_mask = 4
-
 [node name="shadow_checker" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 16
 
 [node name="shadow" type="AnimatedSprite2D" parent="shadow_checker"]
@@ -548,8 +225,7 @@ animation = &"idle_down"
 flip_v = true
 
 [node name="shadow_collision" type="CollisionShape2D" parent="shadow_checker"]
-position = Vector2(-84.2898, 209.917)
-rotation = 0.71733
+position = Vector2(-7.5, -10)
 shape = SubResource("RectangleShape2D_2pgv3")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
@@ -564,16 +240,14 @@ shape = SubResource("RectangleShape2D_kaxpn")
 
 [node name="fov_range_big" type="Area2D" parent="fovs"]
 visible = false
-collision_layer = 17
-collision_mask = 17
+collision_layer = 0
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_big"]
 polygon = PackedVector2Array(28, -30, 2562, -1314, 2567, 1365)
 
 [node name="fov_range_medium" type="Area2D" parent="fovs"]
 visible = false
-collision_layer = 17
-collision_mask = 17
+collision_layer = 0
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_medium"]
 position = Vector2(45, -36)
@@ -581,8 +255,7 @@ polygon = PackedVector2Array(4, -2, 1953, -998, 1930, 1058)
 
 [node name="fov_range_small" type="Area2D" parent="fovs"]
 visible = false
-collision_layer = 17
-collision_mask = 17
+collision_layer = 0
 
 [node name="collision_body" type="CollisionPolygon2D" parent="fovs/fov_range_small"]
 polygon = PackedVector2Array(3, -2, 649, -334, 632, 274)
@@ -595,646 +268,646 @@ visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1314)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1279)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1248)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D4" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1231)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D5" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1210)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D6" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1191)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D7" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -1173)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D8" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -1155)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D9" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1134)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D10" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -1111)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D11" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -1085)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D12" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, -1058)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D13" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1036)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D14" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -1007)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D15" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -984)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D16" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -961)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D17" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, -932)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D18" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -906)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D19" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -883)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D20" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, -856)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D21" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, -832)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D22" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -801)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D23" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -774)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D24" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -748)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D25" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -721)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D26" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -693)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D27" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, -663)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D28" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -634)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D29" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -605)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D30" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -573)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D31" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -540)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D32" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, -513)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D33" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -483)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D34" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -454)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D35" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, -430)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D36" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, -394)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D37" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, -361)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D38" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -333)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D39" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -303)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D40" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -279)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D41" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -249)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D42" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -216)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D43" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -183)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D44" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -159)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D45" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -134)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D46" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -110)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D47" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -80)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D48" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -55)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D49" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, -27)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D50" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, -9)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D51" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 16)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D52" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 42)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D53" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 68)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D54" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 110)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D55" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 143)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D56" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 179)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D57" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 215)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D58" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 249)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D59" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 276)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D60" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 311)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D61" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2560, 351)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D62" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2559, 377)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D63" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2559, 415)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D64" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2559, 465)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D65" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2559, 504)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D66" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 546)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D67" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 584)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D68" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 624)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D69" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2560, 666)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D70" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 703)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D71" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 735)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D72" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 772)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D73" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 801)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D74" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2565, 835)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D75" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 859)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D76" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 891)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D77" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 910)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D78" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 939)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D79" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 971)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D80" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 1000)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D81" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 1035)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D82" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2561, 1070)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D83" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 1097)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D84" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 1128)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D85" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2565, 1156)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D86" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2564, 1183)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D87" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2566, 1214)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D88" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2566, 1245)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D89" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2566, 1276)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D90" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2565, 1299)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D91" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2565, 1321)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D92" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2563, 1341)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D93" type="RayCast2D" parent="fovs/fov_polyon_checkers_big"]
 target_position = Vector2(2562, 1359)
-collision_mask = 4
+collision_mask = 2
 
 [node name="fov_polyon_checkers_small" type="Node2D" parent="fovs"]
 visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1998, -1032)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1997, -997)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1996, -964)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D4" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1996, -931)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D5" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1996, -898)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D6" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1995, -862)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D7" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1995, -827)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D8" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1994, -789)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D9" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1993, -762)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D10" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1993, -732)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D11" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1992, -701)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D12" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1992, -674)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D13" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1992, -641)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D14" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1992, -602)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D15" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1989, -565)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D16" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1989, -528)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D17" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1990, -498)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D18" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1989, -468)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D19" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1990, -435)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D20" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1988, -400)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D21" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -366)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D22" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -337)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D23" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -309)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D24" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -282)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D25" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -259)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D26" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1987, -230)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D27" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1986, -208)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D28" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1986, -192)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D29" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, -164)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D30" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, -145)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D31" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, -115)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D32" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, -96)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D33" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, -73)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D34" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, -52)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D35" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1982, -29)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D36" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1981, -12)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D37" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, 9)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D38" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, 36)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D39" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, 56)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D40" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, 97)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D42" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1984, 136)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D43" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1982, 184)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D44" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1982, 221)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D45" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1982, 250)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D46" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1981, 284)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D47" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1981, 316)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D48" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1982, 359)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D49" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1978, 395)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D50" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1978, 427)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D51" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1978, 468)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D52" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1979, 506)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D53" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1978, 547)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D54" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1976, 593)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D55" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1976, 650)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D56" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1975, 707)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D57" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1975, 748)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D58" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1974, 778)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D59" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1973, 816)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D60" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1973, 861)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D61" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1973, 901)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D62" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1973, 929)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D63" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1972, 955)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D64" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1971, 979)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D65" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1972, 998)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D66" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1971, 1010)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D67" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1977, 1022)
-collision_mask = 4
+collision_mask = 2
 
 [node name="RayCast2D41" type="RayCast2D" parent="fovs/fov_polyon_checkers_small"]
 target_position = Vector2(1983, 81)
-collision_mask = 4
+collision_mask = 2
 
 [node name="timers" type="Node2D" parent="."]
 
@@ -1264,49 +937,15 @@ wait_time = 0.2
 autostart = true
 
 [node name="navigation" type="Node2D" parent="."]
-visible = false
-
-[node name="light_source_finder" type="RayCast2D" parent="navigation"]
-position = Vector2(0, -2)
-target_position = Vector2(0, 4)
-collision_mask = 6
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation"]
 
 [node name="player_finder" type="RayCast2D" parent="navigation"]
 position = Vector2(0, 2)
-collision_mask = 6
-
-[node name="torch" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(76, -44)
-scale = Vector2(0.211111, 0.205556)
-texture = ExtResource("4_7fhug")
-script = ExtResource("5_puk0q")
-
-[node name="light" type="PointLight2D" parent="torch"]
-visible = false
-z_index = 2
-texture_filter = 3
-texture_repeat = 2
-position = Vector2(61.5789, 24.3243)
-scale = Vector2(10.597, 8.89502)
-energy = 3.9
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.145098)
-texture = SubResource("CompressedTexture2D_xh7i1")
-texture_scale = 15.39
-
-[node name="light_collision" type="Area2D" parent="torch/light"]
-position = Vector2(-32.4074, -55.5124)
-collision_layer = 16
-collision_mask = 16
+collision_mask = 2
 
 [connection signal="timeout" from="timers/searching_timer" to="." method="_on_searching_timer_timeout"]
 [connection signal="timeout" from="timers/sight_timer" to="." method="_on_sight_timer_timeout"]
 [connection signal="timeout" from="timers/move_timer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="timers/player_detection_timer" to="." method="_on_player_detection_timer_timeout"]
 [connection signal="timeout" from="timers/light_timer" to="." method="_on_light_timer_timeout"]
-[connection signal="area_entered" from="torch/light/light_collision" to="." method="_on_light_collision_area_entered"]
-[connection signal="area_exited" from="torch/light/light_collision" to="." method="_on_light_collision_area_exited"]
-[connection signal="body_entered" from="torch/light/light_collision" to="." method="_on_light_collision_body_entered"]

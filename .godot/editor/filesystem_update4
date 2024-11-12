@@ -11,3 +11,13 @@ res://chars/enemy_with_torch.tscn
 res://scenes/tempmap.tscn
 res://chars/enemy.gd
 res://scenes/tile_map_layer.gd
+res://chars/torch_range.gd
+res://chars/basechar.gd
+res://objects/torch.tscn
+res://objects/torch.gd
+res://objects/wall.gd
+res://assets/global_script.gd
+res://objects/pillar.tscn
+res://objects/pillar.gd
+res://objects/table.tscn
+res://objects/table.gd

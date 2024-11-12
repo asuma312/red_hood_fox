@@ -964,7 +964,6 @@ scale = Vector2(2, 2)
 [node name="enemy2" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-957, 391)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -972,7 +971,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy3" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-1287, 276)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -980,7 +978,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy4" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-891, 184)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -988,7 +985,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy5" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-1485, 161)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -996,7 +992,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy6" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-1419, 575)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -1004,7 +999,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy7" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-1122, 575)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
@@ -1012,7 +1006,6 @@ move_sequence = Array[String](["down", "up"])
 [node name="enemy8" parent="NavigationRegion2D/enemies" instance=ExtResource("4_3a1ra")]
 position = Vector2(-858, 552)
 scale = Vector2(0.2, 0.2)
-collision_layer = 1
 speed = 300
 torch_intensity = 5
 move_sequence = Array[String](["down", "up"])
