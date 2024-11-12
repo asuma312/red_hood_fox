@@ -82,9 +82,7 @@ func change_others():
 	"this just checks if its in shadow and changes the things visible to the player"
 	if in_shadow:
 		prefix = "black"
-		black_blur.visible = true
 	if not in_shadow:
-		black_blur.visible = false
 		prefix = 'white'
 
 func is_in_shadow()->bool:

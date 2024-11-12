@@ -3,13 +3,12 @@ extends Node2D
 @onready var parent = self.get_parent()
 @onready var tilemap_range = $tilemap_range
 @onready var collision_polygon_2d: CollisionPolygon2D = $torch_range/CollisionPolygon2D
-@onready var tile_map_layer: TileMapLayer = parent.tile_map_layer
+@onready var tile_map_layer = parent.tile_map_layer
 @onready var torch_sprite: AnimatedSprite2D = $torch_sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	torch_sprite.play("fire")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

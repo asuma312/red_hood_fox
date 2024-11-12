@@ -55,35 +55,183 @@ animations = [{
 }]
 
 [node name="torch" type="Node2D"]
+position = Vector2(0, -4)
 script = ExtResource("1_r631n")
 
 [node name="torch_range" type="Area2D" parent="."]
 visible = false
 collision_layer = 16
 collision_mask = 2
+input_pickable = false
 script = ExtResource("1_gfrcw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="torch_range"]
+polygon = PackedVector2Array(-484, 0, 0, -367, 508, 0, 1, 444)
 
 [node name="tilemap_range" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="tilemap_range"]
-target_position = Vector2(-482, -3)
+position = Vector2(0, -2)
+target_position = Vector2(-512, 6)
 collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="tilemap_range"]
-target_position = Vector2(1, -250)
+position = Vector2(0, -2)
+target_position = Vector2(-448, 70)
 collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="tilemap_range"]
-target_position = Vector2(396, -1)
+position = Vector2(0, -2)
+target_position = Vector2(-384, 134)
 collision_mask = 2
 
 [node name="RayCast2D4" type="RayCast2D" parent="tilemap_range"]
-target_position = Vector2(-2, 374)
+position = Vector2(0, -2)
+target_position = Vector2(-320, 198)
+collision_mask = 2
+
+[node name="RayCast2D5" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-256, 262)
+collision_mask = 2
+
+[node name="RayCast2D6" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-192, 326)
+collision_mask = 2
+
+[node name="RayCast2D7" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-128, 390)
+collision_mask = 2
+
+[node name="RayCast2D8" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-64, 454)
+collision_mask = 2
+
+[node name="RayCast2D9" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(0, 518)
+collision_mask = 2
+
+[node name="RayCast2D10" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(64, 454)
+collision_mask = 2
+
+[node name="RayCast2D11" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(128, 390)
+collision_mask = 2
+
+[node name="RayCast2D12" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(192, 326)
+collision_mask = 2
+
+[node name="RayCast2D13" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(256, 262)
+collision_mask = 2
+
+[node name="RayCast2D14" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(320, 198)
+collision_mask = 2
+
+[node name="RayCast2D15" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(384, 134)
+collision_mask = 2
+
+[node name="RayCast2D16" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(448, 70)
+collision_mask = 2
+
+[node name="RayCast2D17" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(512, 6)
+collision_mask = 2
+
+[node name="RayCast2D18" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(448, -58)
+collision_mask = 2
+
+[node name="RayCast2D19" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(384, -122)
+collision_mask = 2
+
+[node name="RayCast2D20" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(320, -186)
+collision_mask = 2
+
+[node name="RayCast2D21" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(256, -250)
+collision_mask = 2
+
+[node name="RayCast2D22" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(192, -314)
+collision_mask = 2
+
+[node name="RayCast2D23" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(128, -378)
+collision_mask = 2
+
+[node name="RayCast2D24" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(64, -442)
+collision_mask = 2
+
+[node name="RayCast2D25" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(0, -506)
+collision_mask = 2
+
+[node name="RayCast2D26" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-64, -442)
+collision_mask = 2
+
+[node name="RayCast2D27" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-128, -378)
+collision_mask = 2
+
+[node name="RayCast2D28" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-192, -314)
+collision_mask = 2
+
+[node name="RayCast2D29" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-256, -250)
+collision_mask = 2
+
+[node name="RayCast2D30" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-320, -186)
+collision_mask = 2
+
+[node name="RayCast2D31" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-384, -122)
+collision_mask = 2
+
+[node name="RayCast2D32" type="RayCast2D" parent="tilemap_range"]
+position = Vector2(0, -2)
+target_position = Vector2(-448, -58)
 collision_mask = 2
 
 [node name="torch_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -24)
 sprite_frames = SubResource("SpriteFrames_uflmh")
 animation = &"fire"
 

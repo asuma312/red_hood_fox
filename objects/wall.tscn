@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ub652pm0amgf" path="res://assets/amio/artassets/furni.png" id="2_3d20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn1cl"]
-size = Vector2(1320, 343.333)
+size = Vector2(1320, 226.667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgm2c"]
-size = Vector2(320, 1310)
+size = Vector2(163.333, 1310)
 
 [node name="wall" type="StaticBody2D"]
 position = Vector2(-4, -2)
@@ -20,12 +20,12 @@ scale = Vector2(0.3, 0.3)
 
 [node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
 z_index = 1
-position = Vector2(-4.99998, -3.33329)
+position = Vector2(3.33333, -3.33326)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_mn1cl")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0.499996)
+position = Vector2(-1.5, 0.499996)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_vgm2c")
 
