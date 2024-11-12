@@ -27,6 +27,7 @@ var sufix:String
 @onready var shadow_checker: Area2D = $shadow_checker
 
 @onready var ui: CanvasLayer = $Camera2D/UI
+@onready var black_blur:ColorRect = $"Camera2D/UI/black_blur"
 
 
 
@@ -81,7 +82,9 @@ func change_others():
 	"this just checks if its in shadow and changes the things visible to the player"
 	if in_shadow:
 		prefix = "black"
+		black_blur.visible = true
 	if not in_shadow:
+		black_blur.visible = false
 		prefix = 'white'
 
 func is_in_shadow()->bool:

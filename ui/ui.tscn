@@ -5,6 +5,13 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_3c70b")
 
+[node name="black_blur" type="ColorRect" parent="."]
+offset_left = -23.0
+offset_top = -54.0
+offset_right = 1187.0
+offset_bottom = 679.0
+color = Color(0.32549, 0.32549, 0.32549, 0.529412)
+
 [node name="hearth_panel" type="Panel" parent="."]
 offset_right = 161.0
 offset_bottom = 52.0
