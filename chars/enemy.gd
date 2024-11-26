@@ -94,16 +94,19 @@ func _state_manager():
 		return
 	if enemy_state == 'chasing':
 		move_timer.stop()
+		animated_sprite_2d.speed_scale = 2
 		chase_player()
 		
 	elif enemy_state == 'chasing_ghost':
 		move_timer.stop()
+		animated_sprite_2d.speed_scale = 1
 		chase_ghost()
 	
 	elif enemy_state == 'returning':
 		return_to_init()
 	
 	elif enemy_state == 'searching':
+		animated_sprite_2d.play("idle_side")
 		search()
 	elif enemy_state == 'look' or enemy_state == 'look_reverse':
 		look_around()
@@ -113,6 +116,9 @@ func _state_manager():
 	
 	elif enemy_state == 'idle':
 		pass
+	
+	elif enemy_state == 'walking':
+		animated_sprite_2d.speed_scale = 0.5
 	
 
 func change_state(state:String):
@@ -228,8 +234,6 @@ func _on_move_timer_timeout() -> void:
 	"""
 	change_state("walking")
 	idle_movement_processor()
-	#it calls another time here but its just temporary, prob i will make a slow turn instead of instant one
-	anim_verifier(direction)
 	velocity = direction * speed
 	move_and_slide()
 	
@@ -263,9 +267,24 @@ func walk_anim(dir):
 			animated_sprite_2d.play("walk_side")
 
 		_:
+			#this is the chasing animation
 			if dir.x != 0:
 				animated_sprite_2d.flip_h = dir.x < 0
+				if enemy_state in ['chasing','chasing_ghost']:
+					animated_sprite_2d.play("run_side")
+					return
 				animated_sprite_2d.play("walk_side")
+			elif dir.y > 0:
+				if enemy_state in ['chasing','chasing_ghost']:
+					animated_sprite_2d.play("run_down")
+					return
+				animated_sprite_2d.play("walk_down")
+			elif dir.y < 0 :
+				if enemy_state in ['chasing','chasing_ghost']:
+					animated_sprite_2d.play("run_up")
+					return
+				animated_sprite_2d.play("walk_up")
+
 
 
 func change_awareness_level(value:int):
@@ -389,9 +408,11 @@ func look_around():
 	if enemy_state == 'look_reverse':
 		if look_timer.is_stopped() and searching_timer.is_stopped():
 			direction = -direction
+			animated_sprite_2d.flip_h = true if not animated_sprite_2d.flip_h else false
 			if searching_timer.is_stopped():
 				searching_timer.start(1)
 				change_state('look_reverse_sleep')
+
 
 
 	
@@ -400,6 +421,7 @@ func look_around():
 func return_to_init():
 	"""function to the enemy return to initial position"""
 	move_nav_agent(initial_position)
+	walk_anim(direction)
 	if navigation_agent_2d.is_navigation_finished():
 		change_state('walking')
 		move_timer.start()
@@ -408,12 +430,13 @@ func return_to_init():
 
 
 func _on_sight_timer_timeout() -> void:
-	"""function to the enemy stop verifiy if the player is there and if its not, just starts returning"""
+	"""function to the enemy stop verifiy if the player is there and if its not, just starts walking"""
 	player = null
 	if is_player_in_vision:
 		change_state('chasing')
 	else:
-		change_state("walking")
+		#change_state("walking")
+		pass
 
 
 func _on_searching_timer_timeout() -> void:

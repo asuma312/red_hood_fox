@@ -106,7 +106,7 @@ shape = SubResource("RectangleShape2D_ibu7d")
 
 [node name="white_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbgqy")
-animation = &"black_idle_down"
+animation = &"white_walking_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, -36)
