@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1732213385
+::res://::1732611862
 export_presets.cfg::TextFile::-1::1732209439::0::1::::<><>::
 icon.svg::CompressedTexture2D::2991680721614920488::1732209439::1732212831::1::::<><>::
 light.png::CompressedTexture2D::5359578472972935730::1732209439::1732212832::1::::<><>::
@@ -9,7 +9,7 @@ main.tscn::PackedScene::82373534116464915::1732213355::0::1::::<><>::res://main.
 tile_map_layer.gd::GDScript::-1::1732209439::0::1::::<>TileMapLayer<>::
 ui.gd::GDScript::-1::1732209439::0::1::::<>CanvasLayer<>::
 ::res://addons/::1732209411
-::res://addons/godot-rapier2d/::1732212834
+::res://addons/godot-rapier2d/::1732213387
 circle_mesh.tres::ArrayMesh::7174673425048804142::1732209424::0::1::::<><>::
 faucet_2d.gd::GDScript::-1::1732209424::0::1::::Faucet2D<>Fluid2D<>::
 Fluid2D.svg::CompressedTexture2D::6302457331682152295::1732209411::1732213387::1::::<><>::
@@ -25,13 +25,13 @@ rapier_state_2d.gd::GDScript::-1::1732209424::0::1::::Rapier2DState<>Node<>res:/
 THIRDPARTY.txt::TextFile::-1::1732209411::0::1::::<><>::
 water_shader.gdshader::Shader::-1::1732209424::0::1::::<><>::
 water_shader.tres::ShaderMaterial::6495341302912672044::1732209424::0::1::::<><>::res://addons/godot-rapier2d/water_shader.gdshader
-::res://addons/godot-rapier2d/bin/::1732213368
+::res://addons/godot-rapier2d/bin/::1732611831
 ::res://addons/godot-rapier2d/bin/libgodot_rapier.ios.framework/::1732209419
 ::res://addons/godot-rapier2d/bin/libgodot_rapier.macos.framework/::1732209420
 ::res://addons/godot-rapier2d/bin/libgodot_rapier.macos.framework/_CodeSignature/::1732209419
 ::res://addons/godot-rapier2d/bin/libgodot_rapier.macos.framework/Resources/::1732209419
 ::res://addons/godot-rapier2d/bin/wasm-nothreads/::1732209423
-::res://assets/::1732212839
+::res://assets/::1732583162
 ArenaTiles.png::CompressedTexture2D::7691212773876259294::1732209424::1732212839::1::::<><>::
 BaseSet.png::CompressedTexture2D::8855269980004554387::1732209424::1732212820::1::::<><>::
 global_script.gd::GDScript::-1::1732209425::0::1::::<>Node<>::
@@ -51,6 +51,43 @@ furni.png::CompressedTexture2D::1407778492988782417::1732209425::1732212836::1::
 flameanim.tscn::PackedScene::1743044559117619521::1732209425::0::1::::<><>::uid://cn5mxc7vobvl6::::res://assets/amio/artassets/flame.png
 ::res://assets/Extra/::1732212837
 Shadow.png::CompressedTexture2D::5282885549777361566::1732209424::1732212837::1::::<><>::
+::res://assets/Pig_Enemy/::1732583204
+foerunside_1.png::CompressedTexture2D::2593459442984665135::1732579491::1732611880::1::::<><>::
+foerunside_2.png::CompressedTexture2D::3653923695847126536::1732579491::1732611880::1::::<><>::
+foerunside_3.png::CompressedTexture2D::436871754246718676::1732579491::1732611880::1::::<><>::
+foerunside_4.png::CompressedTexture2D::2910154781601376026::1732579491::1732611880::1::::<><>::
+foewlk_1.png::CompressedTexture2D::6841204649480054364::1732566357::1732611879::1::::<><>::
+foewlk_2.png::CompressedTexture2D::1808915579254551049::1732566357::1732611879::1::::<><>::
+foewlk_3.png::CompressedTexture2D::3172870629623599939::1732566358::1732611879::1::::<><>::
+foewlk_4.png::CompressedTexture2D::3785129242984581831::1732566358::1732611879::1::::<><>::
+::res://assets/Pig_Enemy/Back/::1732583204
+foerunback0000.png::CompressedTexture2D::9135918526710156698::1732580332::1732611882::1::::<><>::
+foerunback0001.png::CompressedTexture2D::6106666770130342943::1732580332::1732611882::1::::<><>::
+foerunback0002.png::CompressedTexture2D::5520608048393621427::1732580332::1732611882::1::::<><>::
+foerunback0003.png::CompressedTexture2D::498140282231728228::1732580332::1732611882::1::::<><>::
+foewalkback_1.png::CompressedTexture2D::7856885294275951550::1732576460::1732611882::1::::<><>::
+foewalkback_2.png::CompressedTexture2D::7163787435679488366::1732576461::1732611882::1::::<><>::
+foewalkback_3.png::CompressedTexture2D::7162142504481142277::1732576461::1732611882::1::::<><>::
+foewalkback_4.png::CompressedTexture2D::7176484375156584401::1732576461::1732611882::1::::<><>::
+::res://assets/Pig_Enemy/front/::1732583204
+foerunfront (1).png::CompressedTexture2D::4058809847514012129::1732579252::1732611882::1::::<><>::
+foerunfront (2).png::CompressedTexture2D::7668028714974069969::1732579251::1732611882::1::::<><>::
+foerunfront (3).png::CompressedTexture2D::5045670824088864946::1732579252::1732611881::1::::<><>::
+foerunfront (4).png::CompressedTexture2D::5868830791129097617::1732579252::1732611881::1::::<><>::
+foewalkfront (1).png::CompressedTexture2D::5133051877204080889::1732576379::1732611881::1::::<><>::
+foewalkfront (2).png::CompressedTexture2D::1622942733190809667::1732576378::1732611881::1::::<><>::
+foewalkfront (3).png::CompressedTexture2D::5565364227565727528::1732576378::1732611881::1::::<><>::
+foewalkfront (4).png::CompressedTexture2D::627896095870763486::1732576379::1732611881::1::::<><>::
+::res://assets/Pig_Enemy/interactions/::1732583204
+::res://assets/Pig_Enemy/interactions/surprised/::1732583204
+foe_surprised0000.png::CompressedTexture2D::1606941098739547059::1732581381::1732611881::1::::<><>::
+foe_surprised0001.png::CompressedTexture2D::4085369690902656289::1732581381::1732611881::1::::<><>::
+foe_surprised0002.png::CompressedTexture2D::7657737056643853843::1732581381::1732611881::1::::<><>::
+foe_surprised0003.png::CompressedTexture2D::2885134733565214201::1732581381::1732611881::1::::<><>::
+foe_surprised0004.png::CompressedTexture2D::7332714613778800299::1732581382::1732611880::1::::<><>::
+foe_surprised0005.png::CompressedTexture2D::2615280344701209407::1732581382::1732611880::1::::<><>::
+foe_surprised0006.png::CompressedTexture2D::5746097392019152476::1732581382::1732611880::1::::<><>::
+foe_surprised0007.png::CompressedTexture2D::7596530039453837043::1732581382::1732611880::1::::<><>::
 ::res://assets/Prototype_Character/::1732212837
 Prototype_Character.png::CompressedTexture2D::1224341859908647593::1732209424::1732212837::1::::<><>::
 Prototype_Character_Blue.png::CompressedTexture2D::7873354490028120220::1732209424::1732212837::1::::<><>::
@@ -114,8 +151,8 @@ won.tscn::PackedScene::2126269012229629023::1732209439::0::1::::<><>::
 ::res://scripts/::1732209439
 shadow_walk_node.gd::GDScript::-1::1732209439::0::1::::<>Node2D<>::
 shadow_walk_node.tscn::PackedScene::1442822675719467529::1732209439::0::1::::<><>::res://scripts/shadow_walk_node.gd
-::res://shaders/::1732213365
-invert.gdshader::Shader::-1::1732213365::0::1::::<><>::
+::res://shaders/::1732213396
+invert.gdshader::Shader::-1::1732213396::0::1::::<><>::
 ::res://ui/::1732213363
 fp_smeter.gd::GDScript::-1::1732209439::0::1::::<>Label<>::
 hearth_container.tscn::PackedScene::759888219174537550::1732209439::0::1::::<><>::uid://eb88cgjlmow::::res://assets/UI/hearth_container.png

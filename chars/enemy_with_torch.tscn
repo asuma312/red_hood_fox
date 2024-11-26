@@ -1,10 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://p3qw1lmnepw8"]
+[gd_scene load_steps=38 format=3 uid="uid://p3qw1lmnepw8"]
 
 [ext_resource type="Script" path="res://chars/enemy.gd" id="1_s02hd"]
 [ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="2_moys3"]
 [ext_resource type="Texture2D" uid="uid://cxpqxydeical0" path="res://assets/units/enemy/ennemy_black.png" id="2_qy4yl"]
 [ext_resource type="Texture2D" uid="uid://rpcy4xadhi0p" path="res://assets/Prototype_Character/Prototype_Character.png" id="3_xcbfj"]
 [ext_resource type="Texture2D" uid="uid://bow2y0dq4v86b" path="res://assets/units/enemy/ennemy_white.png" id="4_1w6st"]
+[ext_resource type="Texture2D" uid="uid://cfequ5ldotbr2" path="res://assets/Pig_Enemy/front/foewalkfront (1).png" id="6_ep4xq"]
+[ext_resource type="Texture2D" uid="uid://xefvn601wf5d" path="res://assets/Pig_Enemy/front/foewalkfront (2).png" id="7_etu88"]
+[ext_resource type="Texture2D" uid="uid://clj50aqwuvlcq" path="res://assets/Pig_Enemy/front/foewalkfront (3).png" id="8_73s0e"]
+[ext_resource type="Texture2D" uid="uid://i7fmewbp8v4y" path="res://assets/Pig_Enemy/front/foewalkfront (4).png" id="9_rfbok"]
+[ext_resource type="Texture2D" uid="uid://c4p6v2cnqd1uu" path="res://assets/Pig_Enemy/foewlk_1.png" id="10_fu7ww"]
+[ext_resource type="Texture2D" uid="uid://01ittb1btbc0" path="res://assets/Pig_Enemy/foewlk_2.png" id="11_fqms3"]
+[ext_resource type="Texture2D" uid="uid://blg7ylmf724n4" path="res://assets/Pig_Enemy/foewlk_3.png" id="12_sb4y3"]
+[ext_resource type="Texture2D" uid="uid://bt6sr4u41585x" path="res://assets/Pig_Enemy/foewlk_4.png" id="13_dwjom"]
+[ext_resource type="Texture2D" uid="uid://dj660ulv51l5g" path="res://assets/Pig_Enemy/Back/foewalkback_1.png" id="14_ythk5"]
+[ext_resource type="Texture2D" uid="uid://dacgsdqmj0t3s" path="res://assets/Pig_Enemy/Back/foewalkback_2.png" id="15_lktfq"]
+[ext_resource type="Texture2D" uid="uid://dabno8ngbeywj" path="res://assets/Pig_Enemy/Back/foewalkback_3.png" id="16_ji7e6"]
+[ext_resource type="Texture2D" uid="uid://dailwcovwynob" path="res://assets/Pig_Enemy/Back/foewalkback_4.png" id="17_jjlxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vplg3"]
 atlas = ExtResource("3_xcbfj")
@@ -179,7 +191,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1w6st")
+"texture": ExtResource("6_ep4xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_etu88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_73s0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rfbok")
 }],
 "loop": true,
 "name": &"walk_down",
@@ -187,7 +208,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1w6st")
+"texture": ExtResource("10_fu7ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fqms3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sb4y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dwjom")
 }],
 "loop": true,
 "name": &"walk_side",
@@ -195,7 +225,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1w6st")
+"texture": ExtResource("14_ythk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lktfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ji7e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jjlxt")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -230,7 +269,8 @@ shape = SubResource("RectangleShape2D_2pgv3")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_akp2r")
-animation = &"idle_down"
+animation = &"walk_up"
+frame_progress = 0.0567834
 
 [node name="body_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -2)
