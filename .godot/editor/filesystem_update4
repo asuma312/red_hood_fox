@@ -7,4 +7,3 @@ res://objects/wall.tscn
 res://ui/ui.tscn
 res://chars/basechar.tscn
 res://chars/enemy_with_torch.tscn
-res://chars/enemy.gd
