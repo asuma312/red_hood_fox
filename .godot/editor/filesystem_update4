@@ -1,9 +1,10 @@
-res://main.tscn
+res://chars/basechar.tscn
 res://shaders/invert.gdshader
+res://main.tscn
 res://scenes/tempmap.tscn
 res://objects/pillar.tscn
 res://objects/torch.tscn
 res://objects/wall.tscn
 res://ui/ui.tscn
-res://chars/basechar.tscn
 res://chars/enemy_with_torch.tscn
+res://scenes/main_menu.tscn

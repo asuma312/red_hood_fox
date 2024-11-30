@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7862y7fd1xf2"]
+
+[ext_resource type="Texture2D" uid="uid://du4073mlbkhda" path="res://assets/Extra/Main_menu_image.png" id="1_1cscm"]
+[ext_resource type="Texture2D" uid="uid://djfqjq5i0upe0" path="res://assets/Extra/LOGO.png" id="2_7hvwp"]
+[ext_resource type="FontFile" uid="uid://cu2vqrnwoks8k" path="res://assets/UI/KOMIKAX_.ttf" id="3_8sfjs"]
+
+[sub_resource type="Animation" id="Animation_uq0yi"]
+resource_name = "idle_menu"
+loop_mode = 2
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1.2, 1.2),
+"update": 2,
+"values": [Vector2(960, 320), Vector2(960, 288)]
+}
+
+[sub_resource type="Animation" id="Animation_kh6ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgicc"]
+_data = {
+"RESET": SubResource("Animation_kh6ti"),
+"idle_menu": SubResource("Animation_uq0yi")
+}
+
+[sub_resource type="Theme" id="Theme_ech4d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqu5l"]
+bg_color = Color(0.831373, 0.203922, 0.203922, 1)
+skew = Vector2(0, 0.1)
+shadow_color = Color(0.105882, 0.105882, 0.105882, 1)
+shadow_size = 2
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jb6my"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Main menu" type="CanvasLayer"]
+
+[node name="MainMenuImage" type="Sprite2D" parent="."]
+position = Vector2(640, 358)
+texture = ExtResource("1_1cscm")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(960, 320)
+rotation = 0.0724949
+scale = Vector2(0.232222, 0.232222)
+texture = ExtResource("2_7hvwp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_cgicc")
+}
+autoplay = "idle_menu"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 780.0
+offset_top = 409.0
+offset_right = 1102.0
+offset_bottom = 461.0
+rotation = 0.107271
+theme = SubResource("Theme_ech4d")
+theme_override_colors/font_disabled_color = Color(0.105882, 0.105882, 0.105882, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("3_8sfjs")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_dqu5l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jb6my")
+text = "Play"
