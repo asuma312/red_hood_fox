@@ -27,3 +27,7 @@ res://scenes/levels/1/tempmap.tscn
 res://scenes/levels/1.tscn
 res://scenes/main_menu.tscn
 res://scenes/configs_menu.gd
+res://chars/phase_thru_node.gd
+res://objects/wall.gd
+res://objects/pillar.gd
+res://chars/invis_node.gd

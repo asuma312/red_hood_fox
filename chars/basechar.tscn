@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://pk8qa6077cx8"]
+[gd_scene load_steps=60 format=3 uid="uid://pk8qa6077cx8"]
 
 [ext_resource type="Script" path="res://chars/basechar.gd" id="1_qlr3n"]
 [ext_resource type="Texture2D" uid="uid://csp543gimalsm" path="res://assets/units/player/maincharacter.png" id="2_ju4gu"]
@@ -53,6 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://retwaotv0c03" path="res://assets/Player_character/Side/walk_player_side0005.png" id="33_autk5"]
 [ext_resource type="Texture2D" uid="uid://bp0sstmis7e7b" path="res://assets/Player_character/Side/walk_player_side0006.png" id="34_x6gc2"]
 [ext_resource type="Texture2D" uid="uid://c63pv7nbvquks" path="res://assets/Player_character/Side/walk_player_side0007.png" id="35_hqol5"]
+[ext_resource type="Script" path="res://chars/phase_thru_node.gd" id="54_hx1ql"]
+[ext_resource type="Script" path="res://chars/invis_node.gd" id="55_acjcp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gbgqy"]
 animations = [{
@@ -298,6 +300,12 @@ position = Vector2(-117, -3)
 
 [node name="shadow_walk_node" parent="rotators" instance=ExtResource("3_xug3k")]
 visible = false
+
+[node name="phase_thru_node" type="Node2D" parent="rotators"]
+script = ExtResource("54_hx1ql")
+
+[node name="invis_node" type="Node2D" parent="rotators"]
+script = ExtResource("55_acjcp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)

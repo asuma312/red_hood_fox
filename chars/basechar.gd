@@ -38,10 +38,16 @@ var current_speed: float
 
 @onready var auto_path: NavigationAgent2D = $auto_path
 @onready var shadow_walk_node: Node2D = $rotators/shadow_walk_node
+@onready var phase_thru_node: Node2D = $rotators/phase_thru_node
+@onready var invis_node: Node2D = $rotators/invis_node
+
 @onready var cheat_node
 @onready var codes = {
-	"sh4d0": shadow_walk_node
+	"sh4d0": shadow_walk_node,
+	"ph4s3": phase_thru_node,
+	"1nv1s":invis_node
 }
+
 
 func _ready() -> void:
 	GlobalScript.actual_life = start_life
@@ -86,8 +92,10 @@ func state_manager():
 func change_others():
 	if in_shadow:
 		prefix = "white"
+		shadow_animation.visible = false
 	else:
 		prefix = 'white'
+		shadow_animation.visible = true
 
 func is_in_shadow() -> bool:
 	return in_shadow
@@ -150,6 +158,8 @@ func write_cheat_codes(event):
 
 func reset_cheat_code():
 	cheat_code.text = ''
+	if cheat_node:
+		cheat_node.activated = false
 	can_write = true
 
 func _input(event: InputEvent) -> void:
@@ -211,12 +221,14 @@ func player_anim_verifier():
 	white_sprite.play(full_animation)
 
 func light_verifier():
+	var old_shadow = in_shadow
 	for area in shadow_checker.get_overlapping_areas():
 		if not area.is_in_group("light"):
 			continue
-		in_shadow = false
+		in_shadow = false if not invis_node.activated else true
 		return
-	in_shadow = true
+	in_shadow = true if not invis_node.activated else false
+
 
 func take_damage(dir_damage):
 	var knockback_direction = -self.global_position.direction_to(dir_damage)

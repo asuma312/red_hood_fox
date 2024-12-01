@@ -20,11 +20,12 @@ func _process(delta: float) -> void:
 func _on_invisiblecollision_body_entered(body: Node2D) -> void:
 	if body.name == self.name:
 		return
+	self.modulate.a = 0.5
 
 func _on_invisiblecollision_body_exited(body: Node2D) -> void:
 	if body.name == self.name:
 		return
-
+	self.modulate.a = 1
 
 func detect_on_shadow():
 	for area in invisiblecollision.get_overlapping_areas():
