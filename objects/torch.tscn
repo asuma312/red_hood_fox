@@ -59,7 +59,6 @@ position = Vector2(0, -4)
 script = ExtResource("1_r631n")
 
 [node name="torch_range" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 2
 input_pickable = false
@@ -77,17 +76,17 @@ collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="tilemap_range"]
 position = Vector2(0, -2)
-target_position = Vector2(-448, 70)
+target_position = Vector2(-512, 70)
 collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="tilemap_range"]
 position = Vector2(0, -2)
-target_position = Vector2(-384, 134)
+target_position = Vector2(-448, 198)
 collision_mask = 2
 
 [node name="RayCast2D4" type="RayCast2D" parent="tilemap_range"]
 position = Vector2(0, -2)
-target_position = Vector2(-320, 198)
+target_position = Vector2(-384, 262)
 collision_mask = 2
 
 [node name="RayCast2D5" type="RayCast2D" parent="tilemap_range"]
@@ -238,5 +237,8 @@ animation = &"fire"
 [node name="light_timer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
 
 [connection signal="timeout" from="light_timer" to="." method="_on_light_timer_timeout"]

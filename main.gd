@@ -2,6 +2,8 @@ extends Node2D
 const WON = preload("res://scenes/won.tscn")
 const LOSE = preload("res://scenes/lose.tscn")
 const DARK_MAP = preload("res://objects/dark_map.tscn")
+const TEMPMAP = preload("res://scenes/tempmap.tscn")
+
 func _ready() -> void:
 	pass
 
@@ -23,5 +25,5 @@ func lose_screen():
 
 func restart():
 	reset_main_node()
-	var temp_map = DARK_MAP.instantiate()
+	var temp_map = TEMPMAP.instantiate()
 	self.add_child(temp_map)

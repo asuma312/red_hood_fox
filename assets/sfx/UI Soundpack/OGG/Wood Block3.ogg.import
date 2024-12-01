@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0mfpu2nb8jnd"
+path="res://.godot/imported/Wood Block3.ogg-f20e3b9ac134f1f00ac74040b49ce7af.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/UI Soundpack/OGG/Wood Block3.ogg"
+dest_files=["res://.godot/imported/Wood Block3.ogg-f20e3b9ac134f1f00ac74040b49ce7af.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

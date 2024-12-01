@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b3c8f3skfwoif" path="res://assets/tiles_stealth_game.png" id="2_7tv0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn1cl"]
-size = Vector2(360.291, 246.668)
+size = Vector2(440.146, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgm2c"]
-size = Vector2(176.667, 310)
+size = Vector2(246.667, 380)
 
 [node name="pillar" type="StaticBody2D"]
 position = Vector2(1, 0)
@@ -42,12 +42,12 @@ scale = Vector2(0.3, 0.3)
 
 [node name="collision_body" type="CollisionShape2D" parent="invisiblecollision"]
 z_index = 1
-position = Vector2(3.33331, -220)
+position = Vector2(1.66731, -180.073)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_mn1cl")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -44.5)
+position = Vector2(0.999998, -52)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_vgm2c")
 

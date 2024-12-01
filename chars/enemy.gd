@@ -15,6 +15,7 @@ var initial_position:Vector2
 var last_position_sight_player:Vector2
 
 
+
 var enemy_state
 var vectors = {
 	"up": Vector2(0, -1),
@@ -57,7 +58,8 @@ var is_player_in_vision:bool = false
 @onready var attack_timer: Timer = $timers/attack_timer
 @onready var player_detection_timer: Timer = $timers/player_detection_timer
 
-
+signal chasing
+signal stop_chasing
 
 
 @onready var shadow_animation: AnimatedSprite2D = $shadow_checker/shadow
@@ -84,6 +86,8 @@ func _process(delta: float) -> void:
 	setup_target_ray()
 	light_verifier()
 	deal_damage()
+	
+	
 func _physics_process(delta: float) -> void:
 	pass
 	
@@ -95,6 +99,8 @@ func _state_manager():
 	if enemy_state == 'chasing':
 		move_timer.stop()
 		animated_sprite_2d.speed_scale = 2
+		player.chasing_level += 1
+		chasing.emit()
 		chase_player()
 		
 	elif enemy_state == 'chasing_ghost':
@@ -103,6 +109,8 @@ func _state_manager():
 		chase_ghost()
 	
 	elif enemy_state == 'returning':
+		player.chasing_level -= 1
+		stop_chasing.emit()
 		return_to_init()
 	
 	elif enemy_state == 'searching':
