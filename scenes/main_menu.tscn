@@ -1,8 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7862y7fd1xf2"]
+[gd_scene load_steps=9 format=3 uid="uid://c64t601ytfvip"]
 
 [ext_resource type="Texture2D" uid="uid://du4073mlbkhda" path="res://assets/Extra/Main_menu_image.png" id="1_1cscm"]
 [ext_resource type="Texture2D" uid="uid://djfqjq5i0upe0" path="res://assets/Extra/LOGO.png" id="2_7hvwp"]
-[ext_resource type="FontFile" uid="uid://cu2vqrnwoks8k" path="res://assets/UI/KOMIKAX_.ttf" id="3_8sfjs"]
+
+[sub_resource type="Animation" id="Animation_kh6ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 320)]
+}
 
 [sub_resource type="Animation" id="Animation_uq0yi"]
 resource_name = "idle_menu"
@@ -19,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.2, 1.2),
 "update": 2,
 "values": [Vector2(960, 320), Vector2(960, 288)]
-}
-
-[sub_resource type="Animation" id="Animation_kh6ti"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(960, 320)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cgicc"]
@@ -82,7 +81,6 @@ theme = SubResource("Theme_ech4d")
 theme_override_colors/font_disabled_color = Color(0.105882, 0.105882, 0.105882, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.105882, 0.105882, 0.105882, 1)
-theme_override_fonts/font = ExtResource("3_8sfjs")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_dqu5l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jb6my")

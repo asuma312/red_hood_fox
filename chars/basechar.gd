@@ -34,7 +34,8 @@ var current_speed: float
 @onready var ui: CanvasLayer = $Camera2D/UI
 @onready var black_blur: ColorRect = $"Camera2D/UI/black_blur"
 
-@onready var cheat_code: RichTextLabel = $cheat_code
+@onready var cheat_code: RichTextLabel = $'Camera2D/UI/CheatCodes/cheat_code'
+
 @onready var auto_path: NavigationAgent2D = $auto_path
 @onready var shadow_walk_node: Node2D = $rotators/shadow_walk_node
 @onready var cheat_node

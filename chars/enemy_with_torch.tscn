@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://p3qw1lmnepw8"]
+[gd_scene load_steps=51 format=3 uid="uid://p3qw1lmnepw8"]
 
 [ext_resource type="Script" path="res://chars/enemy.gd" id="1_s02hd"]
 [ext_resource type="Texture2D" uid="uid://8u4ckihwsufq" path="res://assets/Prototype_Character/Prototype_Character_Red.png" id="2_moys3"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://ckwhuw3jy28fn" path="res://assets/Pig_Enemy/Back/foerunback0002.png" id="16_sa7br"]
 [ext_resource type="Texture2D" uid="uid://dailwcovwynob" path="res://assets/Pig_Enemy/Back/foewalkback_4.png" id="17_jjlxt"]
 [ext_resource type="Texture2D" uid="uid://hdkkeduacgwq" path="res://assets/Pig_Enemy/Back/foerunback0003.png" id="17_xw18a"]
+[ext_resource type="Texture2D" uid="uid://qvqhbrj30jic" path="res://assets/UI/360_F_540116065_qtgalOo5EV3c8ILMEAoWMgppUXZmb5C0.webp" id="30_w7i1f"]
+[ext_resource type="Script" path="res://chars/speech_ballon.gd" id="31_csbjj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vplg3"]
 atlas = ExtResource("3_xcbfj")
@@ -1041,6 +1043,27 @@ autostart = true
 [node name="player_finder" type="RayCast2D" parent="navigation"]
 position = Vector2(0, 2)
 collision_mask = 2
+
+[node name="talk_ballon" type="Node2D" parent="."]
+
+[node name="speech_ballon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(311, -215.5)
+scale = Vector2(0.585513, 0.758333)
+texture = ExtResource("30_w7i1f")
+flip_h = true
+script = ExtResource("31_csbjj")
+
+[node name="text" type="RichTextLabel" parent="speech_ballon"]
+offset_left = -433.0
+offset_top = -150.0
+offset_right = 424.0
+offset_bottom = 33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "FOUND YOU, LITTLE RAT!"
 
 [connection signal="timeout" from="timers/searching_timer" to="." method="_on_searching_timer_timeout"]
 [connection signal="timeout" from="timers/sight_timer" to="." method="_on_sight_timer_timeout"]

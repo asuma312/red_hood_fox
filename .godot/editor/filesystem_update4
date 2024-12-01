@@ -22,3 +22,8 @@ res://scenes/exit.gd
 res://scenes/won.tscn
 res://scenes/lose.tscn
 res://scenes/won.gd
+res://chars/speech_ballon.gd
+res://scenes/levels/1/tempmap.tscn
+res://scenes/levels/1.tscn
+res://scenes/main_menu.tscn
+res://scenes/configs_menu.gd

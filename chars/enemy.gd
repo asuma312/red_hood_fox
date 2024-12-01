@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var speed:int = 95
 @export var mov_value:float = 0.1
 @export var torch_intensity:int = 20
+@export var found_phrase:String = "FOUND YOU LITTLE RAT!"
 var awareness_level:int = 0
 
 

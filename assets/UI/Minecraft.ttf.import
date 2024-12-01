@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cu2vqrnwoks8k"
-path="res://.godot/imported/KOMIKAX_.ttf-0455b11fc7428075fdccfe9e914376f2.fontdata"
+uid="uid://xvcoh3q5yra6"
+path="res://.godot/imported/Minecraft.ttf-7c0a5250be3343121b52ac1c64d514b5.fontdata"
 
 [deps]
 
-source_file="res://assets/UI/KOMIKAX_.ttf"
-dest_files=["res://.godot/imported/KOMIKAX_.ttf-0455b11fc7428075fdccfe9e914376f2.fontdata"]
+source_file="res://assets/UI/Minecraft.ttf"
+dest_files=["res://.godot/imported/Minecraft.ttf-7c0a5250be3343121b52ac1c64d514b5.fontdata"]
 
 [params]
 

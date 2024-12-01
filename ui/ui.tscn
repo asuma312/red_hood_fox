@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfc0l222skq8m"]
+[gd_scene load_steps=5 format=3 uid="uid://cfc0l222skq8m"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_3c70b"]
+[ext_resource type="Texture2D" uid="uid://cp0nbmnjur36s" path="res://assets/UI/cheat_codes.png" id="2_qum8y"]
+[ext_resource type="FontFile" uid="uid://xvcoh3q5yra6" path="res://assets/UI/Minecraft.ttf" id="3_flxyn"]
+
+[sub_resource type="FontVariation" id="FontVariation_13jan"]
+base_font = ExtResource("3_flxyn")
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_3c70b")
@@ -13,3 +18,18 @@ offset_bottom = 52.0
 layout_mode = 0
 offset_right = 161.0
 offset_bottom = 50.0
+
+[node name="CheatCodes" type="Sprite2D" parent="."]
+position = Vector2(1012, 79)
+scale = Vector2(1.64844, 1.4375)
+texture = ExtResource("2_qum8y")
+
+[node name="cheat_code" type="RichTextLabel" parent="CheatCodes"]
+offset_left = -30.9384
+offset_top = -20.1739
+offset_right = 52.0616
+offset_bottom = 4.82608
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_13jan")
+theme_override_font_sizes/normal_font_size = 10
+metadata/_edit_use_anchors_ = true

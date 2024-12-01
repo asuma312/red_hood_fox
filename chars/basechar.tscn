@@ -290,7 +290,6 @@ position = Vector2(2, -4)
 zoom = Vector2(1.455, 1.455)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_efija")]
-visible = false
 
 [node name="auto_path" type="NavigationAgent2D" parent="."]
 
