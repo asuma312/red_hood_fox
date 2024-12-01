@@ -27,3 +27,8 @@ func restart():
 	reset_main_node()
 	var temp_map = TEMPMAP.instantiate()
 	self.add_child(temp_map)
+
+func won():
+	reset_main_node()
+	var temp_won = WON.instantiate()
+	self.add_child(temp_won)

@@ -17,3 +17,8 @@ res://chars/basechar.gd
 res://chars/enemy.gd
 res://scenes/sfx.gd
 res://objects/torch.gd
+res://scenes/sh_4_do_secreto.gd
+res://scenes/exit.gd
+res://scenes/won.tscn
+res://scenes/lose.tscn
+res://scenes/won.gd
