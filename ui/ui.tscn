@@ -25,11 +25,16 @@ scale = Vector2(1.64844, 1.4375)
 texture = ExtResource("2_qum8y")
 
 [node name="cheat_code" type="RichTextLabel" parent="CheatCodes"]
-offset_left = -30.9384
-offset_top = -20.1739
-offset_right = 52.0616
-offset_bottom = 4.82608
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.369
+anchor_right = 0.133
+anchor_bottom = 0.369
+offset_left = -67.024
+offset_top = -67.232
+offset_right = -3.024
+offset_bottom = -54.232
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_13jan")
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 9
 metadata/_edit_use_anchors_ = true
