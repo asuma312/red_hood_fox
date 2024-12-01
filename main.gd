@@ -23,7 +23,9 @@ func _input(event: InputEvent) -> void:
 
 		
 func restore_children():
-	self.remove_child(self.get_child(0))
+	var f_child = self.get_child(0)
+	f_child.reset_menus()
+	self.remove_child(f_child)
 	on_menu = false
 	for child in saved_children:
 		add_child(child)
@@ -38,7 +40,6 @@ func _process(delta: float) -> void:
 
 func reset_main_node():
 	for node in self.get_children():
-		print(node.name)
 		self.remove_child(node)
 
 func lose_screen():
