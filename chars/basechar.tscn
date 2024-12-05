@@ -281,7 +281,8 @@ shape = SubResource("RectangleShape2D_ibu7d")
 
 [node name="white_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbgqy")
-animation = &"white_walking_up"
+animation = &"white_running_side"
+frame_progress = 0.0793777
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, -36)

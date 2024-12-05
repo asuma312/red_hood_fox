@@ -5,7 +5,7 @@ extends Node2D
 @onready var collision_polygon_2d: CollisionPolygon2D = $torch_range/CollisionPolygon2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
 
-@onready var tile_map_layer = parent.tile_map_layer
+#test room modif@onready var tile_map_layer = parent.tile_map_layer
 @onready var torch_sprite: AnimatedSprite2D = $torch_sprite
 
 func _ready() -> void:
@@ -51,27 +51,27 @@ func paint_polygon_with_terrain(polygon_points):
 		if typeof(polygon_points[i]) != TYPE_VECTOR2:
 			polygon_points[i] = Vector2(polygon_points[i][0], polygon_points[i][1])
 	var rect = get_bounding_rect(polygon_points)
-	var tileset = tile_map_layer.tile_set
-	var tile_size = tileset.tile_size
-	var start_x = int(floor(rect.position.x / tile_size.x))
-	var end_x = int(ceil((rect.position.x + rect.size.x) / tile_size.x))
-	var start_y = int(floor(rect.position.y / tile_size.y))
-	var end_y = int(ceil((rect.position.y + rect.size.y) / tile_size.y))
+#test	var tileset = tile_map_layer.tile_set
+#test	var tile_size = tileset.tile_size
+#test	var start_x = int(floor(rect.position.x / tile_size.x))
+#test	var end_x = int(ceil((rect.position.x + rect.size.x) / tile_size.x))
+#test	var start_y = int(floor(rect.position.y / tile_size.y))
+#test	var end_y = int(ceil((rect.position.y + rect.size.y) / tile_size.y))
 
-	var tile_info = get_tile_with_terrain(tileset)
-	if tile_info == null:
-		push_error("No tile found with terrain: ")
-		return
-	var source_id = tile_info["source_id"]
-	var atlas_coords = tile_info["atlas_coords"]
+#test	var tile_info = get_tile_with_terrain(tileset)
+#test	if tile_info == null:
+#test		push_error("No tile found with terrain: ")
+#test		return
+#test	var source_id = tile_info["source_id"]
+#test	var atlas_coords = tile_info["atlas_coords"]
 
-	for x in range(start_x, end_x):
-		for y in range(start_y, end_y):
-			var tile_pos = Vector2i(x, y)
-			var tile_world_pos = tile_map_layer.map_to_local(tile_pos)
-			var tile_center = tile_world_pos + Vector2(tile_size) / 2
-			if Geometry2D.is_point_in_polygon(tile_center, polygon_points):
-				tile_map_layer.set_cell(tile_pos,source_id,atlas_coords)
+#test	for x in range(start_x, end_x):
+#test		for y in range(start_y, end_y):
+#test			var tile_pos = Vector2i(x, y)
+#test			var tile_world_pos = tile_map_layer.map_to_local(tile_pos)
+#test			var tile_center = tile_world_pos + Vector2(tile_size) / 2
+#test			if Geometry2D.is_point_in_polygon(tile_center, polygon_points):
+#test				tile_map_layer.set_cell(tile_pos,source_id,atlas_coords)
 				
 func get_bounding_rect(points):
 	var min_x = points[0].x
@@ -101,7 +101,7 @@ func get_tile_with_terrain(tileset:TileSet):
 	return null
 
 
-func _on_light_timer_timeout() -> void:
-	if not parent.can_move:
-		return
-	new_torch_polygons()
+#testfunc _on_light_timer_timeout() -> void:
+	#testif not parent.can_move:
+	#test	return
+	#testnew_torch_polygons()

@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://anim_com.gd" id="2_22okb"]
 [ext_resource type="Theme" uid="uid://bcsi4fb6byuhj" path="res://ui/main_menu_buttons.tres" id="2_nw058"]
 [ext_resource type="Texture2D" uid="uid://djfqjq5i0upe0" path="res://assets/Extra/LOGO.png" id="5_6yxsg"]
-[ext_resource type="AudioStream" uid="uid://cug1nndb5bas8" path="res://assets/sfx/Menu.ogg" id="6_1bd11"]
-[ext_resource type="AudioStream" uid="uid://kwvabidbgqj7" path="res://assets/sfx/UI Soundpack/OGG/Retro2.ogg" id="6_msanu"]
-[ext_resource type="AudioStream" uid="uid://di74ux212fsqe" path="res://assets/sfx/UI Soundpack/OGG/Retro1.ogg" id="7_jj7lc"]
+[ext_resource type="AudioStream" uid="uid://cug1nndb5bas8" path="res://assets/UI/sfx/Menu.ogg" id="6_1bd11"]
+[ext_resource type="AudioStream" uid="uid://kwvabidbgqj7" path="res://assets/UI/sfx/UI Soundpack/OGG/Retro2.ogg" id="6_msanu"]
+[ext_resource type="AudioStream" uid="uid://di74ux212fsqe" path="res://assets/UI/sfx/UI Soundpack/OGG/Retro1.ogg" id="7_jj7lc"]
 [ext_resource type="Script" path="res://scenes/configs_menu.gd" id="9_od2yd"]
 
 [node name="mainmenu" type="Node2D"]
@@ -100,6 +100,7 @@ rotation = 0.0959931
 color = Color(0.831373, 0.203922, 0.203922, 0.545098)
 
 [node name="music" type="HSlider" parent="MENUS/CONFIGS_MENU/music_container"]
+layout_mode = 0
 offset_left = 21.3676
 offset_top = 34.109
 offset_right = 157.368
@@ -130,6 +131,7 @@ rotation = 0.0959931
 color = Color(0.831373, 0.203922, 0.203922, 0.545098)
 
 [node name="sfx" type="HSlider" parent="MENUS/CONFIGS_MENU/sfx_container"]
+layout_mode = 0
 offset_left = 21.3676
 offset_top = 34.109
 offset_right = 157.368

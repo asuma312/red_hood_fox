@@ -1,57 +1,38 @@
-[gd_scene load_steps=11 format=3 uid="uid://08lfyuyv8a80"]
+[gd_scene load_steps=10 format=3 uid="uid://08lfyuyv8a80"]
 
 [ext_resource type="Script" path="res://chars/torch_range.gd" id="1_gfrcw"]
 [ext_resource type="Script" path="res://objects/torch.gd" id="1_r631n"]
-[ext_resource type="Texture2D" uid="uid://cn5mxc7vobvl6" path="res://assets/amio/artassets/flame.png" id="2_if6a7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uijnk"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(0, 0, 177, 210)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u61dl"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(177, 0, 177, 210)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8f6i"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(354, 0, 177, 210)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6b5j"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(0, 210, 177, 210)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37vis"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(177, 210, 177, 210)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_molkp"]
-atlas = ExtResource("2_if6a7")
-region = Rect2(354, 210, 177, 210)
+[ext_resource type="Texture2D" uid="uid://cgpsntic18se" path="res://assets/Fx/Flame/flame_anim0000.png" id="3_wn8he"]
+[ext_resource type="Texture2D" uid="uid://b72sfrtko5y1h" path="res://assets/Fx/Flame/flame_anim0001.png" id="4_333ax"]
+[ext_resource type="Texture2D" uid="uid://wcp1v8aoaqns" path="res://assets/Fx/Flame/flame_anim0002.png" id="5_u7pjg"]
+[ext_resource type="Texture2D" uid="uid://d4ekwgp2wf0xs" path="res://assets/Fx/Flame/flame_anim0003.png" id="6_2kh67"]
+[ext_resource type="Texture2D" uid="uid://ctbxya0tproep" path="res://assets/Fx/Flame/flame_anim0004.png" id="7_y3g2l"]
+[ext_resource type="Texture2D" uid="uid://byonekwp8aw6n" path="res://assets/Fx/Flame/flame_anim0005.png" id="8_oanu4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uflmh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uijnk")
+"texture": ExtResource("3_wn8he")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u61dl")
+"texture": ExtResource("4_333ax")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d8f6i")
+"texture": ExtResource("5_u7pjg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g6b5j")
+"texture": ExtResource("6_2kh67")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_37vis")
+"texture": ExtResource("7_y3g2l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_molkp")
+"texture": ExtResource("8_oanu4")
 }],
 "loop": true,
 "name": &"fire",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="torch" type="Node2D"]
@@ -233,6 +214,7 @@ collision_mask = 2
 position = Vector2(-3, -24)
 sprite_frames = SubResource("SpriteFrames_uflmh")
 animation = &"fire"
+frame_progress = 0.929067
 
 [node name="light_timer" type="Timer" parent="."]
 wait_time = 0.2
